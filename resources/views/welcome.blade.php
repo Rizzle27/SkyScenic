@@ -9,7 +9,7 @@
         <h1 class="bg-dark text-light sticky-top text-center py-2">Sky<span class="text-ultramarine">Scenic</span></h1>
         <div class="d-flex text-light my-2 mx-auto justify-content-evenly">
             <a href="{{ url('/') }}" class="m-0 p-1 text-decoration-none @if (request()->is('/')) text-ultramarine fw-bold @endif">Todas</a>
-            <p class="m-0 p-1">Fotos del díaa</p>
+            <p class="m-0 p-1">Fotos del día</p>
         </div>
         <div class="gallery w-100 col-6">
             @foreach ($photos as $photo)
