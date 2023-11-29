@@ -23,6 +23,8 @@
 
     <script src="<?= url('styles/styles.js') ?>" defer></script>
 
+    @livewireStyles
+
     <title>@yield('title')</title>
 </head>
 
@@ -61,6 +63,7 @@
         </nav>
     </header>
     @yield('content')
+    @livewireScripts
 </body>
 
 </html>

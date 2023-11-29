@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PhotosController::class, 'gallery'])
-    ->name('index');
+Route::get('/', function() {
+    return view('welcome');
+});
