@@ -1,0 +1,23 @@
+.text-ultramarine {
+    color: #3e74ff;
+}
+
+.bg-ultramarine {
+    background-color: #3e74ff;
+}
+
+.border-ultramarine {
+    border: 1px solid #3e74ff !important;
+}
+
+.gallery {
+    columns: 2;
+}
+
+.scroll-fade {
+    height: 3rem;
+    width: 100%;
+    bottom: 45px;
+    position: fixed;
+    background-image: linear-gradient(to top, #212529 20%, transparent 100%);
+}
