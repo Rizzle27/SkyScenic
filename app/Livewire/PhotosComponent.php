@@ -9,7 +9,7 @@ class PhotosComponent extends Component
 {
     public function render()
     {
-        $photos = Photo::orderBy('created_at', 'desc')->get();
+        $photos = Photo::inRandomOrder()->get();
 
         return view('livewire.photos-component', [
             'photos' => $photos
