@@ -38,17 +38,6 @@ class PhotoSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'aircraft' => "General Dynamics F-16C Fighting Falcon",
-                'license_plate' => "92-3917",
-                'airline' => "United States - US Air Force (USAF)",
-                'location' => "Savannah Int'l Airport - KSAV",
-                'country' => "USA - Georgia",
-                'img_path' => "test4.jpg",
-                'date' => now(),
-                'created_at' => now(),
-                'updated_at' => now()
-            ],
-            [
                 'aircraft' => "Lockheed Martin F-35A Lightning II",
                 'license_plate' => "22-5684",
                 'airline' => "United States - US Air Force (USAF)",
@@ -71,11 +60,11 @@ class PhotoSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'aircraft' => "Alenia Aermacchi T-345A",
-                'license_plate' => "CSX55237",
-                'airline' => "Italy - Air Force",
-                'location' => "Varese - Venegono - LILN",
-                'country' => "Italy",
+                'aircraft' => "General Dynamics F-16C Fighting Falcon",
+                'license_plate' => "92-3917",
+                'airline' => "United States - US Air Force (USAF)",
+                'location' => "Savannah Int'l Airport - KSAV",
+                'country' => "USA - Georgia",
                 'img_path' => "test5.jpg",
                 'date' => now(),
                 'created_at' => now(),
