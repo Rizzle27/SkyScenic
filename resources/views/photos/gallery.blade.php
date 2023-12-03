@@ -1,5 +1,6 @@
+{{-- Gallery Include --}}
 <div class="gallery w-100">
-    @foreach ($dailyPhotos as $photo)
+    @foreach ($photos as $photo)
         <div class="rounded-3 bg-darkgray mb-2">
             <a href="{{ url('/fotos/' . $photo->id) }}">
                 <img class="w-100 object-fit-cover rounded-3"

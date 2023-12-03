@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\PhotosController::class, 'index']);
+
+Route::get('/fotos/{id}', [\App\Http\Controllers\PhotosController::class, 'view'])
+    ->whereNumber('id');
+
+    //TODO: añadir autenticacion para poder subir una foto
+Route::get('/fotos/subir', [\App\Http\Controllers\PhotosController::class, 'uploadForm']);
