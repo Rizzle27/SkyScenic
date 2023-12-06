@@ -16,6 +16,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'username' => 'lucasgarcia0027',
+                'avatar' => 'lucas.jpg',
                 'name' => 'Lucas',
                 'lastname' => 'García',
                 'email' => 'lucas.garcia@davinci.edu.ar',
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'username' => 'MartuBianchi',
+                'avatar' => 'martu.jpg',
                 'name' => 'Martina',
                 'lastname' => 'Bianchi',
                 'email' => 'martina.bianchi@davinci.edu.ar',
@@ -36,6 +38,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'username' => 'KunAgüero',
+                'avatar' => 'kun.jpg',
                 'name' => 'Nicolás',
                 'lastname' => 'Agüero',
                 'email' => 'nicolas.aguero@davinci.edu.ar',
@@ -46,6 +49,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'username' => 'BeluuStella',
+                'avatar' => 'belu.jpg',
                 'name' => 'Belén',
                 'lastname' => 'Stella',
                 'email' => 'belen.stella@davinci.edu.ar',

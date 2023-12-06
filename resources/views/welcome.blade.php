@@ -21,6 +21,5 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-fade" />
     </div>
 @endsection
