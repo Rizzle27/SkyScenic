@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-light text-center mt-3 mb-4 fs-3">Registrar nueva cuenta</h2>
+    <h2 class="text-light text-center mt-5 mb-4 fs-3">Registrar nueva cuenta</h2>
     <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="signup">
         @csrf
         <div class="mx-auto">
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="image-status text-nowrap position-absolute py-2">
-                    <div wire:loading>
+                    <div wire:loading wire:target="avatar">
                         Subiendo imágen...
                     </div>
 

@@ -16,44 +16,44 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'username' => 'lucasgarcia0027',
-                'avatar' => 'lucas.jpg',
+                'avatar' => 'photos/lucas.jpg',
                 'name' => 'Lucas',
                 'lastname' => 'García',
                 'email' => 'lucas.garcia@davinci.edu.ar',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('123456'),
                 'role' => 'superadmin',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'username' => 'MartuBianchi',
-                'avatar' => 'martu.jpg',
+                'avatar' => 'photos/martina.jpg',
                 'name' => 'Martina',
                 'lastname' => 'Bianchi',
                 'email' => 'martina.bianchi@davinci.edu.ar',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('123456'),
                 'role' => 'admin',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'username' => 'KunAgüero',
-                'avatar' => 'kun.jpg',
+                'avatar' => 'photos/nico.jpg',
                 'name' => 'Nicolás',
                 'lastname' => 'Agüero',
                 'email' => 'nicolas.aguero@davinci.edu.ar',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('123456'),
                 'role' => 'regular',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'username' => 'BeluuStella',
-                'avatar' => 'belu.jpg',
+                'avatar' => 'photos/belen.jpg',
                 'name' => 'Belén',
                 'lastname' => 'Stella',
                 'email' => 'belen.stella@davinci.edu.ar',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('123456'),
                 'role' => 'regular',
                 'created_at' => now(),
                 'updated_at' => now()

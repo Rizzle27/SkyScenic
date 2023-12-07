@@ -1,3 +1,9 @@
+@php
+    $authUser = auth()->user();
+
+    $avatar = $authUser->avatar;
+@endphp
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -61,7 +67,7 @@
                     </a></li>
                 <li>
                     @guest
-                        <a href="{{ url('/usuarios/registrarse') }}">
+                        <a href="{{ url('/usuarios/iniciar-sesion') }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-person-circle text-light" viewBox="0 0 16 16">
                                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />

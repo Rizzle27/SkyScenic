@@ -15,7 +15,7 @@ class Login extends Component
         return view('livewire.users.login');
     }
 
-    public function submitForm()
+    public function login()
     {
         $credentials = [
             'email' => $this->email,

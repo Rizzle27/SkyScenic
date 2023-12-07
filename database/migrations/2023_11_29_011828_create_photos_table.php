@@ -21,6 +21,13 @@ return new class extends Migration
             $table->string('img_path');
             $table->date('date');
             $table->timestamps();
+
+            // relación
+            $table->foreignId('id_user')
+                ->nullable()
+                ->constrained('users')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
         });
     }
 
