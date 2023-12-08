@@ -24,3 +24,5 @@ Route::get('/fotos/subir', [\App\Http\Controllers\PhotosController::class, 'uplo
 Route::get('/usuarios/registrarse', [\App\Http\Controllers\AuthController::class, 'signupForm']);
 
 Route::get('/usuarios/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'loginForm']);
+
+Route::get('/usuarios/perfil/{username}', [\App\Http\Controllers\UsersController::class, 'profile']);

@@ -1,3 +1,17 @@
+/* reinicio estilos de google para los forms autocompletados */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #f8f9fa;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+/* colores y estilos personalizados */
+
 .text-ultramarine {
     color: #3e74ff;
 }
@@ -8,42 +22,6 @@
 
 .border-ultramarine {
     border: 1px solid #3e74ff !important;
-}
-
-.gallery {
-    columns: 2;
-}
-
-.scroll-fade {
-    height: 3rem;
-    width: 100%;
-    bottom: 45px;
-    position: fixed;
-    background-image: linear-gradient(to top, #212529 20%, transparent 100%);
-}
-
-.return-background {
-    background-color: #212529b5;
-    border-radius: 50%;
-    width: 34px;
-    height: 34px;
-    margin: .5rem;
-}
-
-.photo-upload-form {
-    position: absolute;
-    bottom: 0;
-}
-
-.profilePic {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-}
-
-#img_path_output {
-    min-height: auto;
-    border: none !important;
 }
 
 .custom-fillable-input {
@@ -63,6 +41,31 @@
     height: 18px;
 }
 
+/* welcome */
+
+.gallery {
+    columns: 2;
+}
+
+.scroll-fade {
+    height: 3rem;
+    width: 100%;
+    bottom: 45px;
+    position: fixed;
+    background-image: linear-gradient(to top, #212529 20%, transparent 100%);
+}
+
+.profile-pic {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+#img_path_output {
+    min-height: auto;
+    border: none !important;
+}
+
 .input-select-options-container {
     background-color: #ffffff;
     padding: 1rem;
@@ -73,6 +76,8 @@
 .input-select-option {
     padding: .5rem 0;
 }
+
+/* registro */
 
 .avatar-input {
     display: none;
@@ -97,21 +102,95 @@
     display: none;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active{
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #f8f9fa;
-    transition: background-color 5000s ease-in-out 0s;
-    box-shadow: inset 0 0 20px 20px #23232329;
-}
-
 .image-status {
     bottom: -34px;
 }
 
 .avatar-thumbnail {
-    height: 24px;
-    width: 24px;
+    height: 22px;
+    width: 22px;
+}
+
+/* perfil del usuario */
+
+.avatar {
+    height: 180px;
+    width: 180px;
+}
+
+.userDateContainer {
+    left: 50%;
+    bottom: -14px;
+    transform: translate(-50%, -50%);
+}
+
+.nullPhotosContainer {
+    height: 200px;
+    width: 200px;
+}
+
+.userGallery {
+    margin: 0 4px;
+}
+
+.userGalleryCard {
+    padding: 4px;
+    aspect-ratio: 1;
+}
+
+/* navegación arriba */
+
+.nav-button {
+    width: 34px;
+    height: 34px;
+}
+
+.return-button {
+    position: absolute;
+    left: 1.2rem;
+}
+
+.option-button {
+    position: absolute;
+    right: 1.2rem;
+}
+
+#profileNavContainer {
+    display: none;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
+    right: -100vw;
+    top: 66px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+
+/* estilos de librerias */
+
+@keyframes slideInDown {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.slide-in-down {
+    animation: slideInDown 0.5s ease forwards;
+}
+
+@keyframes slideOutDown {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.slide-out-down {
+    animation: slideOutDown 0.5s ease backwards;
 }

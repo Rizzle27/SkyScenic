@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('img_path');
             $table->date('date');
             $table->timestamps();
+            $table->integer('visit_count')->default(0);
 
             // relación
             $table->foreignId('id_user')

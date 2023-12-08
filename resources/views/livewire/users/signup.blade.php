@@ -7,7 +7,7 @@
                 <input class="avatar-input" id="avatar" type="file" accept="image/*" name="avatar"
                     wire:model="avatar">
 
-                <img class="w-100 h-100 position-absolute rounded-circle object-fit-cover" id="img_path_output"
+                <img class="w-100 h-100 rounded-circle object-fit-cover" id="img_path_output"
                     src="{{ isset($avatar) ? $avatar->temporaryUrl() : asset('assets/icons/user.svg') }}"
                     alt="Foto del usuario">
 
@@ -43,7 +43,7 @@
 
         <label>
             <input class="custom-fillable-input text-light w-100" id="email" name="email" type="email"
-                placeholder="Correo electrónico" required value="{{ old('email') }}" wire:model="email">
+                placeholder="Correo electrónico" required value="{{ old('email') }}" wire:model.live="email">
             @error('email')
                 <p class="text-danger m-0 mt-2">{{ $message }}</p>
             @enderror
@@ -52,7 +52,7 @@
         <label>
             <div class="d-flex position-relative">
                 <input class="custom-fillable-input text-light w-100" id="password" name="password" type="password"
-                    placeholder="Contraseña (min 6 caracteres)" required wire:model="password">
+                    placeholder="Contraseña (min 6 caracteres)" required wire:model.live="password">
                 <input class="custom-show-password position-absolute end-0" type="checkbox" onclick="showPass()">
             </div>
             @error('password')
@@ -63,7 +63,10 @@
         <label>
             <input class="custom-fillable-input text-light w-100" id="password_confirmation"
                 name="password_confirmation" type="password" placeholder="Confirmar contraseña" required
-                wire:model="password_confirmation">
+                wire:model.live="password_confirmation">
+            @error('password_confirmation')
+                <p class="text-danger m-0 mt-2">{{ $message }}</p>
+            @enderror
         </label>
 
         <p class="text-secondary">¿Ya tenés una cuenta? <a class="text-ultramarine text-decoration-none"

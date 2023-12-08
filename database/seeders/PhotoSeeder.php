@@ -24,7 +24,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test1.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 200
             ],
             [
                 'aircraft' => "Panavia Tornado IDS",
@@ -35,7 +37,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test2.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 30
             ],
             [
                 'aircraft' => "Lockheed Martin F-35A Lightning II",
@@ -46,7 +50,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test3.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 80
             ],
             [
                 'aircraft' => "SpaceX Falcon 9",
@@ -57,7 +63,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test4.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 2,
+                'visit_count' => 25
             ],
             [
                 'aircraft' => "General Dynamics F-16C Fighting Falcon",
@@ -68,7 +76,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test5.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 4,
+                'visit_count' => 15
             ],
             [
                 'aircraft' => "Alenia Aermacchi T-345A",
@@ -79,7 +89,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test6.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 4,
+                'visit_count' => 4
             ],
             [
                 'aircraft' => "Dassault Mirage 2000-5F",
@@ -90,7 +102,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test7.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 3,
+                'visit_count' => 40
             ],
             [
                 'aircraft' => "Boeing 747SP-21",
@@ -101,7 +115,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test8.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 2,
+                'visit_count' => 8
             ],
             [
                 'aircraft' => "Rockwell Space Shuttle Orbiter",
@@ -112,7 +128,9 @@ class PhotoSeeder extends Seeder
                 'img_path' => "test9.jpg",
                 'date' => now(),
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 25
             ],
             ]);
     }

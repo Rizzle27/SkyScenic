@@ -10,11 +10,12 @@
             alt="Foto de {{ $photo->aircraft }} tomada en {{ $photo->location }}">
     </div>
     <div class="d-flex flex-column col-11 mx-auto gap-3 mb-2">
-        {{-- TODO: agregar alt de las imagenes y los datos de usuario --}}
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-2">
-                <img class="profilePic" src="{{ asset('assets/images/photos/test1.jpg') }}" alt="">
-                <b class="text-light m-0"><span class="text-secondary">@</span>Rizzle27</b>
+                <a href="{{ url('/usuarios/perfil/' . $user->username) }}">
+                    <img class="profile-pic" src="{{ $user->avatar == '' ? asset('assets/icons/user.svg') : asset('storage/' . $user->avatar) }}" alt="Foto del usuario {{ $user->username }}">
+                </a>
+                <b class="text-light m-0"><span class="text-secondary">@</span>{{ $user->username }}</b>
             </div>
             <div>
                 <p class="text-secondary m-0 fw-normal">{{ $photo->date }}</p>
@@ -54,9 +55,8 @@
         </div>
     </div>
     <div class="d-flex flex-column col-11 mx-auto gap-3 mb-5">
-        {{-- TODO: poner fotos relacionadas y no todas las fotos --}}
         <div class="gallery w-100">
-            @foreach ($photosTemp as $photo)
+            @foreach ($photosByUser as $photo)
                 <div class="rounded-3 bg-darkgray mb-2">
                     <a href="{{ url('/fotos/' . $photo->id) }}">
                         <img class="w-100 object-fit-cover rounded-3"

@@ -14,3 +14,23 @@ function showPass() {
         password.type = "password";
     }
 }
+
+if (document.getElementById("profileNavContainer")) {
+    var profileNavigation = document.getElementById("profileNavContainer");
+    var showProfileNavBtn = document.getElementById("optionButton");
+
+    showProfileNavBtn.addEventListener("click", () => {
+        if (profileNavigation.classList.contains("slide-out-down")) {
+            profileNavigation.classList.remove("slide-out-down");
+            profileNavigation.classList.add("slide-in-down");
+            profileNavigation.style.display = "flex";
+        } else {
+            profileNavigation.classList.remove("slide-in-down");
+            profileNavigation.classList.add("slide-out-down");
+            setTimeout(() => {
+                profileNavigation.style.display = "none";
+            }, 400);
+        }
+    });
+}
+
