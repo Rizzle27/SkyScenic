@@ -33,5 +33,5 @@ Route::get('/usuarios/cerrar-sesion', [\App\Http\Controllers\AuthController::cla
 
 // noticias
 
-Route::get('/noticias/subir', [\App\Http\Controllers\NewsController::class, 'uploadForm'])
+Route::get('/noticias/subir', [\App\Http\Controllers\NewsArticlesController::class, 'uploadForm'])
     ->middleware(['auth']);;

@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function photos() {
         return $this->hasMany(Photo::class, 'id_user');
     }
+
+    public function newsArticels() {
+        return $this->hasMany(NewsArticle::class, 'id_user');
+    }
 }

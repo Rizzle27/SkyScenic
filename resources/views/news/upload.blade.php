@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('title')
-    SkyScenic | Subir foto
+    SkyScenic | Subir noticia
 @endsection
 
 @section('content')
-    @livewire('photos.upload')
+    @livewire('news.upload')
 @endsection

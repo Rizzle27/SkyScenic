@@ -15,7 +15,6 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'id' => 1,
                 'username' => 'lucasgarcia0027',
                 'avatar' => 'lucas.jpg',
                 'name' => 'Lucas',
@@ -27,7 +26,6 @@ class UserSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'id' => 2,
                 'username' => 'MartuBianchi',
                 'avatar' => 'martina.jpg',
                 'name' => 'Martina',
@@ -39,7 +37,6 @@ class UserSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'id' => 3,
                 'username' => 'KunAgüero',
                 'avatar' => 'nico.jpg',
                 'name' => 'Nicolás',
@@ -51,7 +48,6 @@ class UserSeeder extends Seeder
                 'updated_at' => now()
             ],
             [
-                'id' => 4,
                 'username' => 'BeluuStella',
                 'avatar' => 'belen.jpg',
                 'name' => 'Belén',
