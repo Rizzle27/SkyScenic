@@ -18,11 +18,20 @@ Route::get('/', [\App\Http\Controllers\PhotosController::class, 'index']);
 Route::get('/fotos/{id}', [\App\Http\Controllers\PhotosController::class, 'view'])
     ->whereNumber('id');
 
-//TODO: añadir autenticacion para poder subir una foto
-Route::get('/fotos/subir', [\App\Http\Controllers\PhotosController::class, 'uploadForm']);
+Route::get('/fotos/subir', [\App\Http\Controllers\PhotosController::class, 'uploadForm'])
+    ->middleware(['auth']);
 
 Route::get('/usuarios/registrarse', [\App\Http\Controllers\AuthController::class, 'signupForm']);
 
 Route::get('/usuarios/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'loginForm']);
 
 Route::get('/usuarios/perfil/{username}', [\App\Http\Controllers\UsersController::class, 'profile']);
+
+Route::get('/usuarios/editar/{id}', [\App\Http\Controllers\AuthController::class, 'updateForm']);
+
+Route::get('/usuarios/cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logout']);
+
+// noticias
+
+Route::get('/noticias/subir', [\App\Http\Controllers\NewsController::class, 'uploadForm'])
+    ->middleware(['auth']);;

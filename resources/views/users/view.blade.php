@@ -8,8 +8,8 @@
     <div class="col-10 mx-auto mt-4 mb-5">
         <div class="d-flex flex-column justify-content-center align-items-center gap-3">
             <div class="position-relative">
-                <img class="avatar rounded-circle"
-                    src="{{ $user->avatar == '' ? asset('assets/icons/user.svg') : asset('storage/' . $user->avatar) }}"
+                <img class="avatar rounded-circle object-fit-cover"
+                    src="{{ $user->avatar == '' ? asset('assets/icons/user.svg') : asset('uploads/avatar_uploads/' . $user->avatar) }}"
                     alt="Foto de {{ $user->username }}">
                 <div class="userDateContainer position-absolute rounded-pill w-100 text-center border-ultramarine border-1 bg-light">
                     <p class="text-dark m-0 fw-bold">{{ $user->created_at->format('d/m/Y') }}</p>
@@ -60,7 +60,7 @@
                         <div class="userGalleryCard col-4">
                             <a href="{{ url('/fotos/' . $photo->id) }}">
                                 <img class="object-fit-cover w-100 h-100"
-                                    src="{{ asset('assets/images/photos/' . $photo->img_path) }}"
+                                    src="{{ asset('uploads/photos_uploads/' . $photo->img_path) }}"
                                     alt="{{ $photo->aircraft . ' captado en ' . $photo->location }}">
                             </a>
                         </div>

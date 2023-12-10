@@ -1,10 +1,3 @@
-<?php
-use Illuminate\Support\ViewErrorBag;
-
-/** @var ViewErrorBag $errors */
-
-?>
-
 @extends('layouts.main')
 
 @section('title')

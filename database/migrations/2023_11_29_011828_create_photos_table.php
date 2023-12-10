@@ -24,11 +24,7 @@ return new class extends Migration
             $table->integer('visit_count')->default(0);
 
             // relación
-            $table->foreignId('id_user')
-                ->nullable()
-                ->constrained('users')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
+            $table->foreignId('id_user')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

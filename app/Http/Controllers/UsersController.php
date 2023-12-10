@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -19,13 +20,4 @@ class UsersController extends Controller
             'photosByUser' => $photosByUser,
         ]);
     }
-
-    // public function update(User $user, User $profileUser)
-    // {
-    //     $this->authorize('update', $profileUser);
-
-
-
-    //     return redirect()->back()->with('success', 'Perfil actualizado correctamente.');
-    // }
 }

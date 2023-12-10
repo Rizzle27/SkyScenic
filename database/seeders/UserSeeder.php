@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 1,
                 'username' => 'lucasgarcia0027',
-                'avatar' => 'photos/lucas.jpg',
+                'avatar' => 'lucas.jpg',
                 'name' => 'Lucas',
                 'lastname' => 'García',
                 'email' => 'lucas.garcia@davinci.edu.ar',
@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 2,
                 'username' => 'MartuBianchi',
-                'avatar' => 'photos/martina.jpg',
+                'avatar' => 'martina.jpg',
                 'name' => 'Martina',
                 'lastname' => 'Bianchi',
                 'email' => 'martina.bianchi@davinci.edu.ar',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 3,
                 'username' => 'KunAgüero',
-                'avatar' => 'photos/nico.jpg',
+                'avatar' => 'nico.jpg',
                 'name' => 'Nicolás',
                 'lastname' => 'Agüero',
                 'email' => 'nicolas.aguero@davinci.edu.ar',
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
             [
                 'id' => 4,
                 'username' => 'BeluuStella',
-                'avatar' => 'photos/belen.jpg',
+                'avatar' => 'belen.jpg',
                 'name' => 'Belén',
                 'lastname' => 'Stella',
                 'email' => 'belen.stella@davinci.edu.ar',

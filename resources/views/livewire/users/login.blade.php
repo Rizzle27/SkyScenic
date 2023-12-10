@@ -1,5 +1,5 @@
 <div>
-    <h2 class="text-light text-center mt-5 mb-4 fs-3">Iniciar sesión</h2>
+    <h2 class="text-secondary text-center my-3 fs-3">Iniciar sesión</h2>
     <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="login">
         @csrf
 
@@ -25,6 +25,6 @@
         <p class="text-secondary">¿Todavía no tenés una cuenta? <a class="text-ultramarine text-decoration-none"
                 href="{{ url('/usuarios/registrarse') }}">Crear cuenta</a></p>
 
-        <input class="rounded-pill border-0 py-2 text-light bg-ultramarine" type="submit" value="Iniciar sesión">
+        <input class="rounded-pill border-0 py-2 text-light bg-ultramarine" type="submit" value="Iniciar sesión" wire:click="login">
     </form>
 </div>

@@ -3,6 +3,7 @@
 namespace App\Livewire\Users;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
@@ -50,12 +51,12 @@ class Signup extends Component
 
     public function signup()
     {
+        $avatarPathName = Carbon::now()->timestamp . '.' . $this->avatar->extension();
+        $this->avatar->storeAs('avatar_uploads', $avatarPathName);
+
         $validatedData = $this->validate();
 
-        if ($this->avatar) {
-            $avatarPath = $this->avatar->store('photos', 'public');
-            $validatedData['avatar'] = $avatarPath;
-        }
+        $validatedData['avatar'] = $avatarPathName;
 
         $user = User::create($validatedData);
 

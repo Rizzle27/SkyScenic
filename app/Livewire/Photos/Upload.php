@@ -3,10 +3,15 @@
 namespace App\Livewire\Photos;
 
 use App\Models\Photo;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Upload extends Component
 {
+    use WithFileUploads;
+
     public $img_path;
     public $aircraft;
     public $airline;
@@ -14,27 +19,67 @@ class Upload extends Component
     public $location;
     public $country;
     public $date;
+    public $id_user;
 
-    public function render()
-    {
-        return view('livewire.photos.upload');
-    }
+    public $rules = [
+        'img_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'aircraft' => 'required|string|max:255',
+        'airline' => 'required|string|max:255',
+        'license_plate' => 'required|string|max:20',
+        'location' => 'required|string|max:255',
+        'country' => 'required|string|max:255',
+        'date' => 'required|date',
+        'date' => 'required|date',
+    ];
 
-    public function save()
+    public $messages = [
+        'img_path.required' => 'La imagen es obligatoria.',
+        'img_path.image' => 'El archivo debe ser una imagen.',
+        'img_path.mimes' => 'La imagen debe ser de tipo jpeg, png, o jpg.',
+        'img_path.max' => 'La imagen no puede ser más grande de 2 MB.',
+        'aircraft.required' => 'El campo aeronave es obligatorio.',
+        'aircraft.string' => 'El campo aeronave debe ser una cadena de caracteres.',
+        'aircraft.max' => 'El campo aeronave no puede ser más largo de 255 caracteres.',
+        'airline.required' => 'El campo aerolínea es obligatorio.',
+        'airline.string' => 'El campo aerolínea debe ser una cadena de caracteres.',
+        'airline.max' => 'El campo aerolínea no puede ser más largo de 255 caracteres.',
+        'license_plate.required' => 'El campo matrícula es obligatorio.',
+        'location.required' => 'El campo ubicación es obligatorio.',
+        'location.string' => 'El campo ubicación debe ser una cadena de caracteres.',
+        'location.max' => 'El campo ubicación no puede ser más largo de 255 caracteres.',
+        'country.required' => 'El campo país es obligatorio.',
+        'country.string' => 'El campo país debe ser una cadena de caracteres.',
+        'country.max' => 'El campo país no puede ser más largo de 255 caracteres.',
+        'date.required' => 'El campo fecha es obligatorio.',
+        'date.date' => 'El campo fecha debe ser una fecha válida.',
+    ];
+
+    public function uploadPhoto()
     {
-        $validated = $this->validate([
-            'img_path' => 'required|image|mimes:png,jpg,jpeg,webp|max:2048',
-            'aircraft' => 'required',
-            'airline' => 'required',
-            'license_plate' => 'required',
-            'location' => 'required',
-            'country' => 'required',
-            'date' => 'required',
+        $imgPathName = Carbon::now()->timestamp . '.' . $this->img_path->extension();
+        $this->img_path->storeAs('photos_uploads', $imgPathName);
+
+        $validatedData = $this->validate();
+
+        $validatedData['img_path'] = $imgPathName;
+
+        $validatedData['id_user'] = auth()->user()->id;
+
+        $photo = Photo::create($validatedData);
+
+        $photo->save();
+
+        session()->flash('message', 'Foto subida con éxito');
+
+        $this->reset([
+            'img_path',
+            'aircraft',
+            'airline',
+            'license_plate',
+            'location',
+            'country',
+            'date',
         ]);
-
-        Photo::create($validated);
-
-        return redirect()->to('/fotos/subir');
     }
 
 

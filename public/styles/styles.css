@@ -3,11 +3,17 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active{
+input:-webkit-autofill:active {
     -webkit-background-clip: text;
     -webkit-text-fill-color: #f8f9fa;
     transition: background-color 5000s ease-in-out 0s;
     box-shadow: inset 0 0 20px 20px #23232329;
+}
+
+/* color de los input type date */
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
 }
 
 /* colores y estilos personalizados */
@@ -21,11 +27,15 @@ input:-webkit-autofill:active{
 }
 
 .border-ultramarine {
-    border: 1px solid #3e74ff !important;
+    border: 1px solid #3e74ff;
+}
+
+.border-bottom-ultramarine {
+    border-bottom: 2px solid #3e74ff;
 }
 
 .custom-fillable-input {
-    padding: 0 0 .5rem 0;
+    padding: 0 0 0.5rem 0;
     background-color: transparent;
     border: 0;
     border-bottom: 2px solid #666;
@@ -36,7 +46,7 @@ input:-webkit-autofill:active{
 }
 
 .custom-show-password {
-    margin: 0 0 .5rem 0;
+    margin: 0 0 0.5rem 0;
     width: 18px;
     height: 18px;
 }
@@ -74,7 +84,7 @@ input:-webkit-autofill:active{
 }
 
 .input-select-option {
-    padding: .5rem 0;
+    padding: 0.5rem 0;
 }
 
 /* registro */
@@ -84,26 +94,42 @@ input:-webkit-autofill:active{
 }
 
 .avatar-label {
-    height: 120px;
-    width: 120px;
+    height: 140px;
+    width: 140px;
+}
+
+.avatar-img-container {
+    height: 140px;
+    width: 140px;
+}
+
+.avatar-status-container {
+    position: absolute;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.avatar-status {
+    height: 100%;
+    width: 100%;
+    background-color: #212529b9;
 }
 
 .cam-icon-container {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     width: 42px;
     height: 42px;
-    bottom: 0px;
+    bottom: 0;
+    right: 0;
 }
 
 #avatarOutput {
     display: none;
-}
-
-.image-status {
-    bottom: -34px;
 }
 
 .avatar-thumbnail {
@@ -143,6 +169,11 @@ input:-webkit-autofill:active{
 .nav-button {
     width: 34px;
     height: 34px;
+    z-index: 1300;
+}
+
+#skyScenicTitle {
+    z-index: 1200;
 }
 
 .return-button {
@@ -157,24 +188,113 @@ input:-webkit-autofill:active{
 
 #profileNavContainer {
     display: none;
-    z-index: 20;
-    width: 100vw;
-    height: 100vh;
-    right: -100vw;
+    border-left: 2px solid #3e74ff;
+    width: 50vw;
+    height: 85vh;
+    right: -50vw;
     top: 66px;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+    background-color: #283139;
+    /* backdrop-filter: blur(10px); */
 }
 
+/* navegacion abajo */
+
+.admin-upload-options {
+    left: 0;
+    bottom: -200px;
+    height: 200px;
+    box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.admin-upload-close {
+    right: 10px;
+}
+
+.admin-upload-info {
+    border-bottom: 1px solid #6c757d;
+    width: 100%;
+}
+
+/* subir foto */
+
+.photo-input {
+    display: none;
+}
+
+.photo-label {
+    width: 100%;
+}
+
+.img-status-container {
+    width: 100%;
+    margin: 1rem;
+    position: absolute;
+}
+
+.img-status {
+    background-color: #212529b9;
+}
+
+.photo-svg-border {
+    border: 3px dashed;
+    width: fit-content;
+    height: fit-content;
+}
+
+.photo-svg {
+    margin: 2rem;
+    height: 80px;
+    width: 80px;
+}
+
+.upload-loading-gif {
+    top: -21px;
+    left: -32px;
+}
+
+.search-results {
+    background-color: #4f5052;
+    max-height: 190px;
+    overflow-y: scroll;
+    border-radius: 0 0 10px 10px;
+}
 
 /* estilos de librerias */
 
-@keyframes slideInDown {
+/* opciones de perfil */
+@keyframes slideInLeft {
     from {
         transform: translateX(0);
     }
     to {
         transform: translateX(-100%);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+@keyframes slideOutLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.slide-out-left {
+    animation: slideOutLeft 0.5s ease backwards;
+}
+
+/* opciones upload admin */
+@keyframes slideInDown {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
     }
 }
 
@@ -184,10 +304,10 @@ input:-webkit-autofill:active{
 
 @keyframes slideOutDown {
     from {
-        transform: translateX(-100%);
+        transform: translateY(-100%);
     }
     to {
-        transform: translateX(100%);
+        transform: translateY(110%);
     }
 }
 

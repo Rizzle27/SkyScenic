@@ -6,14 +6,16 @@
 
 @section('content')
     <div class="col-12 mb-3">
-        <img class="w-100 rounded-bottom-4" src="{{ asset('assets/images/photos/' . $photo->img_path) }}"
+        <img class="w-100 rounded-bottom-4" src="{{ asset('uploads/photos_uploads/' . $photo->img_path) }}"
             alt="Foto de {{ $photo->aircraft }} tomada en {{ $photo->location }}">
     </div>
     <div class="d-flex flex-column col-11 mx-auto gap-3 mb-2">
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-2">
                 <a href="{{ url('/usuarios/perfil/' . $user->username) }}">
-                    <img class="profile-pic" src="{{ $user->avatar == '' ? asset('assets/icons/user.svg') : asset('storage/' . $user->avatar) }}" alt="Foto del usuario {{ $user->username }}">
+                    <img class="profile-pic"
+                        src="{{ $user->avatar == '' ? asset('assets/icons/user.svg') : asset('uploads/avatar_uploads/' . $user->avatar) }}"
+                        alt="Foto de {{ $user->username }}">
                 </a>
                 <b class="text-light m-0"><span class="text-secondary">@</span>{{ $user->username }}</b>
             </div>
@@ -60,7 +62,7 @@
                 <div class="rounded-3 bg-darkgray mb-2">
                     <a href="{{ url('/fotos/' . $photo->id) }}">
                         <img class="w-100 object-fit-cover rounded-3"
-                            src="{{ asset('assets/images/photos/' . $photo->img_path) }}"
+                            src="{{ asset('uploads/photos_uploads/' . $photo->img_path) }}"
                             alt="{{ $photo->aircraft . ' captado en ' . $photo->location }}">
                     </a>
                 </div>
