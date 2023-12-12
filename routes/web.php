@@ -27,11 +27,15 @@ Route::get('/usuarios/iniciar-sesion', [\App\Http\Controllers\AuthController::cl
 
 Route::get('/usuarios/perfil/{username}', [\App\Http\Controllers\UsersController::class, 'profile']);
 
-Route::get('/usuarios/editar/{id}', [\App\Http\Controllers\AuthController::class, 'updateForm']);
-
 Route::get('/usuarios/cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logout']);
+
+Route::get('/usuarios/editar/{id}', [\App\Http\Controllers\AuthController::class, 'updateForm']);
 
 // noticias
 
+Route::get('/noticias', [\App\Http\Controllers\NewsArticlesController::class, 'news']);
+
 Route::get('/noticias/subir', [\App\Http\Controllers\NewsArticlesController::class, 'uploadForm'])
-    ->middleware(['auth']);;
+    ->middleware(['auth']);
+
+Route::get('/noticias/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'view']);

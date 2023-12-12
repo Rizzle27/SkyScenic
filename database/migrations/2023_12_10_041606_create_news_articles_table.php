@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('subtitle');
             $table->text('body');
             $table->string('img_path');
-            $table->date('date');
+            $table->date('date')->default(now());
             $table->timestamps();
 
             // relación

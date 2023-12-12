@@ -15,7 +15,7 @@
 
             {{-- preview del avatar --}}
 
-            <div class="position-relative">
+            <div class="avatar-container position-relative">
                 @if ($avatar)
                     <div class="avatar-img-container mx-auto">
                         <img class="object-fit-cover w-100 h-100 mx-auto rounded-circle"
@@ -54,7 +54,7 @@
         </label>
 
         <label>
-            <div class="d-flex position-relative">
+            <div class="d-flex align-items-center position-relative">
                 <input class="custom-fillable-input text-light w-100" id="password" name="password" type="password"
                     placeholder="Contraseña (min 6 caracteres)" required wire:model.live="password">
                 <input class="custom-show-password position-absolute end-0" type="checkbox" onclick="showPass()">

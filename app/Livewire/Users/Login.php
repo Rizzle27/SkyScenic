@@ -23,7 +23,7 @@ class Login extends Component
         ];
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('/usuarios/perfil/' . Auth::user()->username);
         } else {
             session()->flash('error', 'Credenciales inválidas. Por favor, inténtalo de nuevo.');
         }

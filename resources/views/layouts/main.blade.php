@@ -1,10 +1,10 @@
 @php
     $avatar = null;
 
-    $authUser = auth()->user();
+    $user = auth()->user();
 
-    if ($authUser != null && $authUser->avatar != null) {
-        $avatar = $authUser->avatar;
+    if ($user != null && $user->avatar != null) {
+        $avatar = $user->avatar;
     }
 @endphp
 
@@ -74,13 +74,16 @@
                                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
                                 </svg>
                             </button>
-                            <div id="adminUploadOptions" class="admin-upload-options position-absolute d-none flex-column justify-content-around align-items-center vw-100 bg-dark rounded-top-4 slide-out-down">
+                            <div id="adminUploadOptions"
+                                class="admin-upload-options position-absolute d-none flex-column justify-content-around align-items-center vw-100 bg-dark rounded-top-4 slide-out-down">
 
                                 <div class="admin-upload-info d-flex justify-content-center align-items-center pb-3 pt-1">
                                     <button class="btn position-absolute admin-upload-close" onclick="adminUploadHide()">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-lg text-light" viewBox="0 0 16 16">
-                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                                          </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            fill="currentColor" class="bi bi-x-lg text-light" viewBox="0 0 16 16">
+                                            <path
+                                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                                        </svg>
                                     </button>
                                     <p class="text-light m-0">¿Qué tipo de contenido querés subir?</p>
                                 </div>
@@ -126,7 +129,7 @@
                         </a>
                     </li>
                 @endguest
-                <li><a href="#">
+                <li><a href="{{ url('noticias') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                             class="bi bi-newspaper text-light" viewBox="0 0 16 16">
                             <path
@@ -147,7 +150,7 @@
                         </a>
                     @endguest
                     @auth
-                        <a href="{{ url('/usuarios/perfil/' . $authUser->username) }}">
+                        <a href="{{ url('/usuarios/perfil/' . $user->username) }}">
                             <img class="avatar-thumbnail object-fit-cover rounded-circle"
                                 src="{{ $avatar == '' ? asset('assets/icons/user.svg') : asset('uploads/avatar_uploads/' . $avatar) }}"
                                 alt="Foto de perfil">
@@ -172,7 +175,7 @@
             @endunless
             <h1 class="bg-dark text-light sticky-top text-center mx-auto my-0 w-100 h-100" id="skyScenicTitle">
                 Sky<span class="text-ultramarine">Scenic</span></h1>
-            @if (str_contains(request()->url(), '/usuarios/perfil'))
+            @auth
                 <div class="d-flex justify-content-center align-items-center position-absolute nav-button end-0">
                     <button id="optionButton" class="bg-transparent border-0 p-0 option-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -185,17 +188,25 @@
                     </button>
                     <div id="profileNavContainer"
                         class="slide-out-left position-fixed justify-content-between flex-column">
-                        <ul class="d-flex mx-auto flex-column align-items-start list-unstyled my-4 gap-4">
-                            <li class="text-light">link 1</li>
-                            <li class="text-light">link 1</li>
-                            <li><a class="text-light text-decoration-none"
+                        <ul class="d-flex mx-4 flex-column align-items-start list-unstyled my-4 gap-4">
+                            <li class="text-light">
+                                <a class="text-light text-decoration-none"
+                                    href="{{ url('/usuarios/registrarse') }}">Registrar otra cuenta</a>
+                            </li>
+                            <li class="text-light">
+                                <a class="text-light text-decoration-none"
+                                    href="{{ url('/usuarios/iniciar-sesion') }}">Cambiar cuenta</a>
+                            </li>
+                            <li><a class="text-ultramarine text-decoration-none"
                                     href="{{ url('/usuarios/editar/' . $user->id) }}">Editar perfil</a></li>
+                            <li>
+                                <a class="text-danger text-decoration-none"
+                                    href="{{ url('/usuarios/cerrar-sesion') }}">Cerrar sesión</a>
+                            </li>
                         </ul>
-                        <a class="mb-5 btn border-danger mx-4 text-danger"
-                            href="{{ url('/usuarios/cerrar-sesion') }}">Cerrar sesión</a>
                     </div>
                 </div>
-            @endif
+            @endauth
         </div>
         @yield('content')
     </section>

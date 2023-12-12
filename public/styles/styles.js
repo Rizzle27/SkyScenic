@@ -1,11 +1,3 @@
-var loadFile = function (event) {
-    var output = document.getElementById("img_path_output");
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function () {
-        URL.revokeObjectURL(output.src);
-    };
-};
-
 function showPass() {
     var password = document.getElementById("password");
     if (password.type === "password") {
@@ -34,24 +26,51 @@ if (document.getElementById("profileNavContainer")) {
     });
 }
 
-var adminUploadShow = function() {
+var adminUploadShow = function () {
     if (document.getElementById("adminUploadOptions")) {
         var adminUploadOptions = document.getElementById("adminUploadOptions");
-        if (adminUploadOptions.classList.contains('slide-out-down')) {
-            adminUploadOptions.classList.replace('slide-out-down', 'slide-in-down')
-            adminUploadOptions.classList.replace('d-none', 'd-flex')
+        if (adminUploadOptions.classList.contains("slide-out-down")) {
+            adminUploadOptions.classList.replace(
+                "slide-out-down",
+                "slide-in-down"
+            );
+            adminUploadOptions.classList.replace("d-none", "d-flex");
         }
     }
-}
+};
 
-var adminUploadHide = function() {
+var adminUploadHide = function () {
     if (document.getElementById("adminUploadOptions")) {
         var adminUploadOptions = document.getElementById("adminUploadOptions");
-        if (adminUploadOptions.classList.contains('slide-in-down')) {
-            adminUploadOptions.classList.replace('slide-in-down', 'slide-out-down')
+        if (adminUploadOptions.classList.contains("slide-in-down")) {
+            adminUploadOptions.classList.replace(
+                "slide-in-down",
+                "slide-out-down"
+            );
         }
         setTimeout(() => {
-            adminUploadOptions.classList.replace('d-flex', 'd-none')
+            adminUploadOptions.classList.replace("d-flex", "d-none");
+        }, 500);
+    }
+};
+
+if (document.getElementById("slide1")) {
+    slide1 = document.getElementById("slide1");
+    slide2 = document.getElementById("slide2");
+    slideHeader1 = document.getElementById("slideHeader1");
+    slideHeader2 = document.getElementById("slideHeader2");
+}
+
+function changeSlideState() {
+    if (slide2.classList.contains("active")) {
+        setTimeout(() => {
+            slideHeader1.classList.add("active-slide-header");
+            slideHeader2.classList.remove("active-slide-header");
+        }, 500);
+    } else {
+        setTimeout(() => {
+            slideHeader1.classList.remove("active-slide-header");
+            slideHeader2.classList.add("active-slide-header");
         }, 500);
     }
 }

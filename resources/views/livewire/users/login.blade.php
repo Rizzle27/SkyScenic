@@ -12,7 +12,7 @@
         </label>
 
         <label>
-            <div class="d-flex position-relative">
+            <div class="d-flex align-items-center position-relative">
                 <input class="custom-fillable-input text-light w-100" id="password" name="password" type="password"
                     placeholder="Contraseña (min 6 caracteres)" required wire:model="password">
                 <input class="custom-show-password position-absolute end-0" type="checkbox" onclick="showPass()">

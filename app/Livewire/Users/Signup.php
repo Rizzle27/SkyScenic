@@ -51,12 +51,16 @@ class Signup extends Component
 
     public function signup()
     {
-        $avatarPathName = Carbon::now()->timestamp . '.' . $this->avatar->extension();
-        $this->avatar->storeAs('avatar_uploads', $avatarPathName);
+        if($this->avatar != null) {
+            $avatarPathName = Carbon::now()->timestamp . '.' . $this->avatar->extension();
+            $this->avatar->storeAs('avatar_uploads', $avatarPathName);
+        }
 
         $validatedData = $this->validate();
 
-        $validatedData['avatar'] = $avatarPathName;
+        if($this->avatar != null) {
+            $validatedData['avatar'] = $avatarPathName;
+        }
 
         $user = User::create($validatedData);
 

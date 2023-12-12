@@ -1,3 +1,7 @@
+header {
+    z-index: 2000 !important;
+}
+
 /* reinicio estilos de google para los forms autocompletados */
 
 input:-webkit-autofill,
@@ -35,20 +39,37 @@ input:-webkit-autofill:active {
 }
 
 .custom-fillable-input {
-    padding: 0 0 0.5rem 0;
+    border-radius: 50px;
+    padding: 0.5rem;
     background-color: transparent;
-    border: 0;
-    border-bottom: 2px solid #666;
+    border: 2px solid #3e74ff;
 }
 
 .custom-fillable-input:focus {
     outline: none !important;
 }
 
+.custom-fillable-textarea {
+    border-radius: 20px;
+    padding: 0.5rem;
+    background-color: transparent;
+    border: 2px solid #3e74ff;
+}
+
 .custom-show-password {
-    margin: 0 0 0.5rem 0;
+    -webkit-appearance: none;
+    margin-right: 1rem;
     width: 18px;
     height: 18px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    border: 2px solid #f8f9fa;
+    outline: 2px solid #3e74ff;
+    cursor: pointer;
+}
+
+.custom-show-password:checked {
+    background-color: #3e74ff;
 }
 
 /* welcome */
@@ -71,20 +92,8 @@ input:-webkit-autofill:active {
     border-radius: 50%;
 }
 
-#img_path_output {
-    min-height: auto;
-    border: none !important;
-}
-
-.input-select-options-container {
-    background-color: #ffffff;
-    padding: 1rem;
-    max-height: 180px;
-    overflow-y: scroll;
-}
-
-.input-select-option {
-    padding: 0.5rem 0;
+.active-slide-header {
+    color: #3e74ff !important;
 }
 
 /* registro */
@@ -116,6 +125,10 @@ input:-webkit-autofill:active {
     background-color: #212529b9;
 }
 
+.avatar-container {
+    cursor: pointer;
+}
+
 .cam-icon-container {
     position: absolute;
     display: flex;
@@ -144,23 +157,50 @@ input:-webkit-autofill:active {
     width: 180px;
 }
 
-.userDateContainer {
+.avatar-superadmin-border {
+    outline: 2px solid #3e74ff;
+}
+
+.avatar-admin-border {
+    outline: 2px solid #FFBB00;
+}
+
+.user-date-container {
     left: 50%;
-    bottom: -14px;
+    bottom: -16px;
     transform: translate(-50%, -50%);
 }
 
-.nullPhotosContainer {
+.null-photos-container {
     height: 200px;
     width: 200px;
 }
 
-.userGallery {
+.user-gallery {
     margin: 0 4px;
 }
 
-.userGalleryCard {
+.user-gallery-card {
     padding: 4px;
+    aspect-ratio: 1;
+}
+
+.photo-options-container {
+    margin: 0.5rem;
+}
+
+.photo-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212529b4;
+    height: 28px;
+    width: 28px;
+}
+
+/* noticias */
+
+.new-img-container {
     aspect-ratio: 1;
 }
 
@@ -189,9 +229,9 @@ input:-webkit-autofill:active {
 #profileNavContainer {
     display: none;
     border-left: 2px solid #3e74ff;
-    width: 50vw;
-    height: 85vh;
-    right: -50vw;
+    width: 40vw;
+    height: 90vh;
+    right: -40vw;
     top: 66px;
     background-color: #283139;
     /* backdrop-filter: blur(10px); */
@@ -225,6 +265,10 @@ input:-webkit-autofill:active {
     width: 100%;
 }
 
+.photo-container {
+    cursor: pointer;
+}
+
 .img-status-container {
     width: 100%;
     margin: 1rem;
@@ -253,10 +297,11 @@ input:-webkit-autofill:active {
 }
 
 .search-results {
-    background-color: #4f5052;
+    background-color: transparent;
     max-height: 190px;
     overflow-y: scroll;
-    border-radius: 0 0 10px 10px;
+    border-radius: 20px;
+    border: 2px solid #3e74ff;
 }
 
 /* estilos de librerias */

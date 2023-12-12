@@ -11,7 +11,7 @@
             {{-- preview de la imagen --}}
 
             @if ($img_path)
-                <div class="d-flex justify-content-center">
+                <div class="photo-container d-flex justify-content-center">
                     <img class="object-fit-cover w-75 mx-auto rounded-3" src="{{ $img_path->temporaryUrl() }}">
                     <div class="img-status-container" wire:loading wire:target="img_path" wire:key="img_path">
                         <img class="img-status rounded-circle" src="{{ asset('assets/icons/Spinner.gif') }}"
@@ -19,7 +19,7 @@
                     </div>
                 </div>
             @else
-                <div class="photo-svg-border border-light rounded-4 d-flex justify-content-center mx-auto">
+                <div class="photo-container photo-svg-border border-light rounded-4 d-flex justify-content-center mx-auto">
                     <img class="photo-svg" src="{{ asset('assets/icons/photo.svg') }}">
                 </div>
             @endif
@@ -33,7 +33,7 @@
             @enderror
 
             @if (count($aircraftSearchResults) > 0)
-                <ul class="search-results text-light list-unstyled d-flex flex-column p-2 m-0">
+                <ul class="search-results text-light list-unstyled d-flex flex-column p-2 mt-2 mb-0">
                     @foreach ($aircraftSearchResults as $result)
                         <li class="py-2" wire:click="selectAircraftResult('{{ $result }}')">{{ $result }}</li>
                     @endforeach
@@ -49,7 +49,7 @@
             @enderror
 
             @if (count($airlineSearchResults) > 0)
-                <ul class="search-results text-light list-unstyled d-flex flex-column p-2 m-0">
+                <ul class="search-results text-light list-unstyled d-flex flex-column p-2 mt-2 mb-0">
                     @foreach ($airlineSearchResults as $result)
                         <li class="py-2" wire:click="selectAirlineResult('{{ $result }}')">{{ $result }}</li>
                     @endforeach

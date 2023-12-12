@@ -1,28 +1,4 @@
 <div>
-    @php
-        // Supongamos que $model_avatar es el estado actual del modelo
-        $model_avatar = obtenerModeloAvatar();
-
-        // Supongamos que $avatar es la variable que deseas controlar
-        $avatar = null;
-
-        // Supongamos que $estado_anterior es la variable que almacena el estado anterior
-        // Puedes inicializarla a null al principio o guardarla en una sesión, base de datos, etc.
-        $estado_anterior = obtenerEstadoAnterior();
-
-        // Compara el estado actual con el estado anterior
-        if ($model_avatar == $estado_anterior) {
-            // No hay cambios en el modelo avatar
-            $src = 'hola';
-        } else {
-            // Hay cambios en el modelo avatar
-            $avatar = null;
-            $src = asset('uploads/avatar_uploads/' . $avatar);
-
-            // Actualiza el estado anterior con el estado actual
-            guardarEstadoAnterior($model_avatar);
-        }
-    @endphp
     <h2 class="text-secondary text-center my-3 fs-3">Editar perfil</h2>
     <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="update">
         @csrf
@@ -39,11 +15,16 @@
 
             {{-- preview del avatar --}}
 
-            <div class="position-relative">
-                @if ($avatar)
+            <div class="avatar-container position-relative">
+                @if ($avatar && is_string($avatar))
                     <div class="avatar-img-container mx-auto">
                         <img class="object-fit-cover w-100 h-100 mx-auto rounded-circle"
                             src="{{ asset('uploads/avatar_uploads/' . $avatar) }}">
+                    </div>
+                @elseif ($avatar && is_object($avatar))
+                    <div class="avatar-img-container mx-auto">
+                        <img class="object-fit-cover w-100 h-100 mx-auto rounded-circle"
+                            src="{{ $avatar->temporaryUrl() }}">
                     </div>
                 @else
                     <div class="border-light d-flex justify-content-center mx-auto">
@@ -71,7 +52,7 @@
 
         <label>
             <input class="custom-fillable-input text-light w-100" id="name" name="name" type="text"
-                placeholder="Nombre" required value="{{ old('name') }}" wire:model.live="name">
+                placeholder="Nombre" value="{{ old('name') }}" wire:model.live="name">
             @error('name')
                 <p class="text-danger m-0 mt-2">{{ $message }}</p>
             @enderror
@@ -79,19 +60,16 @@
 
         <label>
             <input class="custom-fillable-input text-light w-100" id="lastname" name="lastname" type="text"
-                placeholder="Apellido" required value="{{ old('lastname') }}" wire:model.live="lastname">
+                placeholder="Apellido" value="{{ old('lastname') }}" wire:model.live="lastname">
             @error('lastname')
                 <p class="text-danger m-0 mt-2">{{ $message }}</p>
             @enderror
         </label>
 
-        <p class="text-secondary">¿Ya tenés una cuenta? <a class="text-ultramarine text-decoration-none"
-                href="{{ url('/usuarios/iniciar-sesion') }}">Iniciar sesion</a></p>
-
         <button class="rounded-pill border-0 py-2 text-light bg-ultramarine" type="submit">
-            <div class="position-relative" wire:loading wire:target="signup" wire:key="signup"><img
+            <div class="position-relative" wire:loading wire:target="update" wire:key="update"><img
                     class="upload-loading-gif position-absolute" src="{{ asset('assets/icons/Spinner.gif') }}"
-                    height="32" alt="Gif de carga del formulario"></div>Registrarse
+                    height="32" alt="Gif de carga del formulario"></div>Editar
         </button>
     </form>
 </div>
