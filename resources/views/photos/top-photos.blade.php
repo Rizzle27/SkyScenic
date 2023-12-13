@@ -1,5 +1,5 @@
 {{-- Top Photos Include --}}
-<div class="w-100">
+<div class="w-100 m-navheight">
     @foreach ($topPhotos as $photo)
         <div class="rounded-3 bg-darkgray mb-2">
             <a href="{{ url('/fotos/' . $photo->id) }}">

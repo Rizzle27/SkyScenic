@@ -33,24 +33,24 @@ class Upload extends Component
     ];
 
     public $messages = [
-        'img_path.required' => 'La imagen es obligatoria.',
+        'img_path.required' => 'La imagen es requerida.',
         'img_path.image' => 'El archivo debe ser una imagen.',
         'img_path.mimes' => 'La imagen debe ser de tipo jpeg, png, o jpg.',
         'img_path.max' => 'La imagen no puede ser más grande de 2 MB.',
-        'aircraft.required' => 'El campo aeronave es obligatorio.',
+        'aircraft.required' => 'El campo aeronave es requerido.',
         'aircraft.string' => 'El campo aeronave debe ser una cadena de caracteres.',
         'aircraft.max' => 'El campo aeronave no puede ser más largo de 255 caracteres.',
-        'airline.required' => 'El campo aerolínea es obligatorio.',
+        'airline.required' => 'El campo aerolínea es requerido.',
         'airline.string' => 'El campo aerolínea debe ser una cadena de caracteres.',
         'airline.max' => 'El campo aerolínea no puede ser más largo de 255 caracteres.',
-        'license_plate.required' => 'El campo matrícula es obligatorio.',
-        'location.required' => 'El campo ubicación es obligatorio.',
+        'license_plate.required' => 'El campo matrícula es requerido.',
+        'location.required' => 'El campo ubicación es requerido.',
         'location.string' => 'El campo ubicación debe ser una cadena de caracteres.',
         'location.max' => 'El campo ubicación no puede ser más largo de 255 caracteres.',
-        'country.required' => 'El campo país es obligatorio.',
+        'country.required' => 'El campo país es requerido.',
         'country.string' => 'El campo país debe ser una cadena de caracteres.',
         'country.max' => 'El campo país no puede ser más largo de 255 caracteres.',
-        'date.required' => 'El campo fecha es obligatorio.',
+        'date.required' => 'El campo fecha es requerido.',
         'date.date' => 'El campo fecha debe ser una fecha válida.',
     ];
 

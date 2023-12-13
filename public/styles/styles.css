@@ -72,10 +72,15 @@ input:-webkit-autofill:active {
     background-color: #3e74ff;
 }
 
+.m-navheight {
+    margin-bottom: 46px;
+}
+
 /* welcome */
 
 .gallery {
     columns: 2;
+    gap: 0.5rem;
 }
 
 .scroll-fade {
@@ -177,7 +182,8 @@ input:-webkit-autofill:active {
 }
 
 .user-gallery {
-    margin: 0 4px;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .user-gallery-card {
@@ -271,12 +277,17 @@ input:-webkit-autofill:active {
 
 .img-status-container {
     width: 100%;
-    margin: 1rem;
+    left: 10px;
+    top: 10px;
     position: absolute;
+    height: 40px;
+    width: 40px;
 }
 
 .img-status {
     background-color: #212529b9;
+    height: 100%;
+    width: 100%;
 }
 
 .photo-svg-border {

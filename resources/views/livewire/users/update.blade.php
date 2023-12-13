@@ -2,11 +2,8 @@
     <h2 class="text-secondary text-center my-3 fs-3">Editar perfil</h2>
     <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="update">
         @csrf
-        <label class="d-flex justify-content-center align-items-center">
+        <label class="d-flex flex-column justify-content-center align-items-center">
             <input class="avatar-input" id="avatar" type="file" accept="image/*" wire:model="avatar">
-            @error('avatar')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
 
             <div class="avatar-status-container" wire:loading wire:target="avatar" wire:key="avatar">
                 <img class="avatar-status rounded-circle" src="{{ asset('assets/icons/Spinner.gif') }}" height="40"
@@ -39,6 +36,11 @@
                             d="M2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4zm.5 2a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9 2.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0" />
                     </svg>
                 </div>
+            </div>
+            <div class="my-2 text-center">
+                @error('avatar')
+                    <p class="m-0 text-danger">{{ $message }}</p>
+                @enderror
             </div>
         </label>
 

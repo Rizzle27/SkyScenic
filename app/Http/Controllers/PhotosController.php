@@ -55,9 +55,41 @@ class PhotosController extends Controller
         ]);
     }
 
-
     public function uploadForm()
     {
         return view('photos.upload');
+    }
+
+    public function updateForm(int $id)
+    {
+        $photo = Photo::findOrFail($id);
+
+        if ($photo->id_user != Auth::user()->id || Auth::user()->role == "superadmin") {
+            return redirect()->to('/fotos/' . $photo->id);
+        }
+
+        return view('photos.update', [
+            'photo' => $photo,
+        ]);
+    }
+
+    public function deleteForm(int $id)
+    {
+        $photo = Photo::findOrFail($id);
+
+        return view('photos.delete', [
+            'photo' => $photo
+        ]);
+    }
+
+    public function deleteProcess(int $id)
+    {
+        $photo = Photo::findOrFail($id);
+        $user = Auth::user();
+        $username = $user->username;
+
+        $photo->delete();
+
+        return redirect('/usuarios/perfil/' . $username);
     }
 }

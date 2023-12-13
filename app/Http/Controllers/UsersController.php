@@ -13,10 +13,13 @@ class UsersController extends Controller
     {
         $user = User::where('username', $username)->firstOrFail();
 
+        $newsByUser = $user->newsArticles;
+
         $photosByUser = $user->photos;
 
         return view('users.view', [
             'user' => $user,
+            'newsByUser' => $newsByUser,
             'photosByUser' => $photosByUser,
         ]);
     }

@@ -2,20 +2,17 @@
     <h2 class="text-secondary text-center my-3 fs-3">Subir una foto</h2>
     <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="uploadPhoto">
         @csrf
-        <label class="photo-label d-flex justify-content-center position-relative" for="img_path">
+        <label class="photo-label d-flex flex-column justify-content-center position-relative" for="img_path">
             <input class="photo-input" id="img_path" type="file" accept="image/*" wire:model="img_path">
-            @error('img_path')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
 
             {{-- preview de la imagen --}}
 
             @if ($img_path)
-                <div class="photo-container d-flex justify-content-center">
-                    <img class="object-fit-cover w-75 mx-auto rounded-3" src="{{ $img_path->temporaryUrl() }}">
+                <div class="photo-container w-75 d-flex justify-content-center mx-auto position-relative">
+                    <img class="object-fit-cover w-100 mx-auto rounded-3" src="{{ $img_path->temporaryUrl() }}">
                     <div class="img-status-container" wire:loading wire:target="img_path" wire:key="img_path">
                         <img class="img-status rounded-circle" src="{{ asset('assets/icons/Spinner.gif') }}"
-                            height="40" alt="Gif de carga de la foto">
+                            alt="Gif de carga de la foto">
                     </div>
                 </div>
             @else
@@ -23,6 +20,11 @@
                     <img class="photo-svg" src="{{ asset('assets/icons/photo.svg') }}">
                 </div>
             @endif
+            <div class="my-2 text-center">
+                @error('img_path')
+                    <p class="m-0 text-danger">{{ $message }}</p>
+                @enderror
+            </div>
         </label>
 
         <label>

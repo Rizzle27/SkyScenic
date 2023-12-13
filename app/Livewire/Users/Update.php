@@ -14,10 +14,10 @@ class Update extends Component
     use WithFileUploads;
 
     public $user;
-    public $avatar;
     public $username;
     public $name;
     public $lastname;
+    public $avatar;
     public $avatarPathName = null;
     public $oldAvatar;
 
@@ -36,10 +36,10 @@ class Update extends Component
     public function mount(User $user)
     {
         $this->user = $user;
-        $this->avatar = $user->avatar ? $user->avatar : null;
         $this->username = $user->username;
         $this->name = $user->name;
         $this->lastname = $user->lastname;
+        $this->avatar = $user->avatar ? $user->avatar : null;
         $this->oldAvatar = $this->avatar;
     }
 
@@ -47,7 +47,7 @@ class Update extends Component
     {
         if($this->oldAvatar != $this->avatar) {
             return $this->validate([
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             ]);
         }
     }

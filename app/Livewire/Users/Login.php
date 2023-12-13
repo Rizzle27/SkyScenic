@@ -10,6 +10,17 @@ class Login extends Component
     public $email;
     public $password;
 
+    protected $rules = [
+        'email' => 'required|email',
+        'password' => 'required',
+    ];
+
+    protected $messages = [
+        'email.required' => 'El email es requerido.',
+        'email.email' => 'El email debe ser una dirección válida (ej: @gmail.com).',
+        'password.required' => 'La contraseña es requerida.',
+    ];
+
     public function render()
     {
         return view('livewire.users.login');
@@ -17,12 +28,9 @@ class Login extends Component
 
     public function login()
     {
-        $credentials = [
-            'email' => $this->email,
-            'password' => $this->password,
-        ];
+        $validatedData = $this->validate();
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($validatedData)) {
             return redirect()->intended('/usuarios/perfil/' . Auth::user()->username);
         } else {
             session()->flash('error', 'Credenciales inválidas. Por favor, inténtalo de nuevo.');
