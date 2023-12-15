@@ -49,7 +49,7 @@
         </label>
 
         <label>
-            <textarea class="custom-fillable-textarea text-light w-100" id="body" name="body" rows="3" placeholder="Cuerpo" required wire:model="body"></textarea>
+            <textarea class="custom-fillable-textarea text-light w-100" id="body" name="body" rows="10" placeholder="Cuerpo" required wire:model="body"></textarea>
             @error('body')
                 <p class="text-danger m-0 mt-2">{{ $message }}</p>
             @enderror

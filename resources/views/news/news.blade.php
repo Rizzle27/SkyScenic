@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="mb-5">
+    <div class="m-navheight">
         @foreach ($news as $new)
             <a class="text-decoration-none" href="{{ url('noticias/' . $new->id) }}">
                 <div class="d-flex col-12 py-3 px-3 border-1 border-secondary border-bottom gap-2 justify-content-center">

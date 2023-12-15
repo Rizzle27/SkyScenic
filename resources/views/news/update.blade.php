@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    @livewire('news.update')
+    <livewire:news.update :new="$new" />
 @endsection

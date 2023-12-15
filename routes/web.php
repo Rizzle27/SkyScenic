@@ -15,14 +15,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\PhotosController::class, 'index']);
 
-// fotos
+// usuarios y autenticación
 
+Route::get('/usuarios/registrarse', [\App\Http\Controllers\AuthController::class, 'signupForm']);
+
+Route::get('/usuarios/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'loginForm']);
+
+Route::get('/usuarios/perfil/{username}', [\App\Http\Controllers\UsersController::class, 'profile']);
+
+Route::get('/usuarios/cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logout']);
+
+Route::get('/usuarios/editar/{id}', [\App\Http\Controllers\AuthController::class, 'updateForm']);
+
+// fotos
 
 Route::get('/fotos/subir', [\App\Http\Controllers\PhotosController::class, 'uploadForm'])
     ->middleware(['auth']);
 
 Route::get('/fotos/{id}', [\App\Http\Controllers\PhotosController::class, 'view']);
-
 
 Route::get('/fotos/editar/{id}', [\App\Http\Controllers\PhotosController::class, 'updateForm'])
     ->whereNumber('id');
@@ -50,15 +60,3 @@ Route::get('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesControl
 
 Route::post('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'deleteProcess'])
     ->whereNumber('id');
-
-// usuarios y autenticación
-
-Route::get('/usuarios/registrarse', [\App\Http\Controllers\AuthController::class, 'signupForm']);
-
-Route::get('/usuarios/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'loginForm']);
-
-Route::get('/usuarios/perfil/{username}', [\App\Http\Controllers\UsersController::class, 'profile']);
-
-Route::get('/usuarios/cerrar-sesion', [\App\Http\Controllers\AuthController::class, 'logout']);
-
-Route::get('/usuarios/editar/{id}', [\App\Http\Controllers\AuthController::class, 'updateForm']);

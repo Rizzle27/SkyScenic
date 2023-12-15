@@ -41,7 +41,7 @@ class NewsArticlesController extends Controller
     public function updateForm(int $id) {
         $new = NewsArticle::findOrFail($id);
 
-        $user = Auth::user($new->id_user);
+        $user = Auth::user();
 
         if ($user->id != $new->id_user && $user->role != "admin" && $user->role != "superadmin") {
             return redirect('noticias/' . $new->id);
@@ -55,7 +55,7 @@ class NewsArticlesController extends Controller
     public function deleteForm(int $id) {
         $new = NewsArticle::findOrFail($id);
 
-        $user = Auth::user($new->id_user);
+        $user = Auth::user();
 
         if ($user->id != $new->id_user && $user->role != "admin" && $user->role != "superadmin") {
             return redirect('noticias/' . $new->id);

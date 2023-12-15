@@ -92,7 +92,7 @@ class Update extends Component
 
         $newUser = User::find($this->new->id_user);
 
-        return redirect('noticias/' . $newUser->username);
+        return redirect('noticias/' . $newUser->id);
     }
 
     public function render()
