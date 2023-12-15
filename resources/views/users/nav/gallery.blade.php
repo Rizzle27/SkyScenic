@@ -1,16 +1,13 @@
 <div class="user-gallery m-navheight">
-    <div class="d-flex justify-content-between mx-2 mb-2">
-        @if ($photosByUser->count() > 0)
+    @if ($photosByUser->count() > 0)
+        <div class="d-flex justify-content-between mx-2 mb-2">
             <h2 class="text-light fs-5 m-0">Pulbicaciones</h2>
             <p class="text-secondary fs-6 m-0">Total: {{ $photosByUser->count() }}</p>
-        @else
+        </div>
+    @else
+        <div class="d-flex justify-content-center mx-2 mb-2">
             <div class="d-flex flex-column my-5">
                 <div class="null-photos-container d-flex justify-content-center mx-auto">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="190" height="190" fill="currentColor"
-                        class="bi bi-x-lg text-light position-absolute" viewBox="0 0 16 16">
-                        <path
-                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                    </svg>
                     <svg xmlns="http://www.w3.org/2000/svg" width="170" height="170" fill="currentColor"
                         class="bi bi-camera text-light position-absolute" viewBox="0 0 16 16">
                         <path
@@ -18,11 +15,16 @@
                         <path
                             d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
                     </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="190" height="190" fill="currentColor"
+                        class="bi bi-x-lg text-danger position-absolute" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg>
                 </div>
                 <p class="text-light fs-4">No hay publicaciones disponibles</p>
             </div>
-        @endif
-    </div>
+        </div>
+    @endif
     @if ($photosByUser->count() > 0)
         <div class="d-flex flex-wrap">
             @foreach ($photosByUser as $photo)

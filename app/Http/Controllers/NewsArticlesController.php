@@ -37,4 +37,47 @@ class NewsArticlesController extends Controller
 
         return view('news.upload');
     }
+
+    public function updateForm(int $id) {
+        $new = NewsArticle::findOrFail($id);
+
+        $user = Auth::user($new->id_user);
+
+        if ($user->id != $new->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('noticias/' . $new->id);
+        }
+
+        return view('news.update', [
+            'new' => $new,
+        ]);
+    }
+
+    public function deleteForm(int $id) {
+        $new = NewsArticle::findOrFail($id);
+
+        $user = Auth::user($new->id_user);
+
+        if ($user->id != $new->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('noticias/' . $new->id);
+        }
+
+        return view('news.delete', [
+            'new' => $new,
+        ]);
+    }
+
+    public function deleteProcess(int $id)
+    {
+        $new = NewsArticle::findOrFail($id);
+        $newUser = User::find($new->id_user);
+        $user = Auth::user();
+
+        if ($user->id != $new->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('noticias/' . $new->id);
+        }
+
+        $new->delete();
+
+        return redirect('/usuarios/perfil/' . $newUser->username);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Livewire\Photos;
 
 use App\Models\Photo;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -68,6 +69,10 @@ class Update extends Component
 
     public function update()
     {
+        $user = Auth::user();
+
+        $photo = $this->photo;
+
         $imagePathName = null;
 
         if ($this->img_path !== null && $this->oldImage != $this->img_path) {
@@ -82,9 +87,15 @@ class Update extends Component
             $validatedData['img_path'] = $imagePathName;
         }
 
+        if ($user->id != $photo->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('fotos/' . $photo->id);
+        }
+
         $this->photo->update($validatedData);
 
-        return redirect('/usuarios/perfil/' . Auth::user()->username);
+        $photoUser = User::find($this->photo->id_user);
+
+        return redirect('/usuarios/perfil/' . $photoUser->username);
     }
 
     public function render()

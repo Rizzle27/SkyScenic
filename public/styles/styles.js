@@ -53,24 +53,3 @@ var adminUploadHide = function () {
         }, 500);
     }
 };
-
-if (document.getElementById("slide1")) {
-    slide1 = document.getElementById("slide1");
-    slide2 = document.getElementById("slide2");
-    slideHeader1 = document.getElementById("slideHeader1");
-    slideHeader2 = document.getElementById("slideHeader2");
-}
-
-function changeSlideState() {
-    if (slide2.classList.contains("active")) {
-        setTimeout(() => {
-            slideHeader1.classList.add("active-slide-header");
-            slideHeader2.classList.remove("active-slide-header");
-        }, 500);
-    } else {
-        setTimeout(() => {
-            slideHeader1.classList.remove("active-slide-header");
-            slideHeader2.classList.add("active-slide-header");
-        }, 500);
-    }
-}

@@ -64,8 +64,10 @@ class PhotosController extends Controller
     {
         $photo = Photo::findOrFail($id);
 
-        if ($photo->id_user != Auth::user()->id || Auth::user()->role == "superadmin") {
-            return redirect()->to('/fotos/' . $photo->id);
+        $user = Auth::user();
+
+        if ($user->id != $photo->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('fotos/' . $photo->id);
         }
 
         return view('photos.update', [
@@ -73,9 +75,16 @@ class PhotosController extends Controller
         ]);
     }
 
+
     public function deleteForm(int $id)
     {
         $photo = Photo::findOrFail($id);
+
+        $user = Auth::user();
+
+        if ($user->id != $photo->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('fotos/' . $photo->id);
+        }
 
         return view('photos.delete', [
             'photo' => $photo
@@ -85,11 +94,15 @@ class PhotosController extends Controller
     public function deleteProcess(int $id)
     {
         $photo = Photo::findOrFail($id);
+        $photoUser = User::find($photo->id_user);
         $user = Auth::user();
-        $username = $user->username;
+
+        if ($user->id != $photo->id_user && $user->role != "admin" && $user->role != "superadmin") {
+            return redirect('fotos/' . $photo->id);
+        }
 
         $photo->delete();
 
-        return redirect('/usuarios/perfil/' . $username);
+        return redirect('/usuarios/perfil/' . $photoUser->username);
     }
 }

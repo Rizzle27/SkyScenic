@@ -17,11 +17,12 @@ Route::get('/', [\App\Http\Controllers\PhotosController::class, 'index']);
 
 // fotos
 
-Route::get('/fotos/{id}', [\App\Http\Controllers\PhotosController::class, 'view'])
-    ->whereNumber('id');
 
 Route::get('/fotos/subir', [\App\Http\Controllers\PhotosController::class, 'uploadForm'])
     ->middleware(['auth']);
+
+Route::get('/fotos/{id}', [\App\Http\Controllers\PhotosController::class, 'view']);
+
 
 Route::get('/fotos/editar/{id}', [\App\Http\Controllers\PhotosController::class, 'updateForm'])
     ->whereNumber('id');
@@ -40,6 +41,15 @@ Route::get('/noticias/subir', [\App\Http\Controllers\NewsArticlesController::cla
     ->middleware(['auth']);
 
 Route::get('/noticias/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'view']);
+
+Route::get('/noticias/editar/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'updateForm'])
+    ->whereNumber('id');
+
+Route::get('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'deleteForm'])
+    ->whereNumber('id');
+
+Route::post('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'deleteProcess'])
+    ->whereNumber('id');
 
 // usuarios y autenticación
 

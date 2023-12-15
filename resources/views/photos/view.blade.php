@@ -7,7 +7,7 @@
 @section('content')
     <div class="col-12 mb-3">
         @auth
-            @if ($photo->id_user == auth()->user()->id || auth()->user()->role == "superadmin")
+            @if ($photo->id_user == auth()->user()->id || auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin')
                 <div class="photo-options-container d-flex flex-row position-absolute gap-2">
                     <a class="photo-options p-1 rounded-circle" href="{{ url('fotos/editar/' . $photo->id) }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

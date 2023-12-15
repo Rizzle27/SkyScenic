@@ -117,7 +117,7 @@ class PhotoSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'id_user' => 2,
-                'visit_count' => 0
+                'visit_count' => 8
             ],
             [
                 'aircraft' => "Rockwell Space Shuttle Orbiter",
@@ -130,8 +130,151 @@ class PhotoSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
                 'id_user' => 1,
-                'visit_count' => 0
+                'visit_count' => 2
             ],
-            ]);
+            [
+                'aircraft' => "Republic F-105F Thunderchief",
+                'license_plate' => "63-8309",
+                'airline' => "United States - US Air Force (USAF)",
+                'location' => "Riverside March Air Force Base - KRIV",
+                'country' => "USA - California",
+                'img_path' => "test10.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 4
+            ],
+            [
+                'aircraft' => "Grumman F-14A Tomcat",
+                'license_plate' => "162591",
+                'airline' => "United States - US Navy (USN)",
+                'location' => "El Centro Naval Air Facility - KNJK",
+                'country' => "USA - California",
+                'img_path' => "test11.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 5
+            ],
+            [
+                'aircraft' => "Boeing F/A-18F Super Hornet",
+                'license_plate' => "166614",
+                'airline' => "United States - US Navy (USN)",
+                'location' => "El Centro Naval Air Facility - KNJK",
+                'country' => "USA - California",
+                'img_path' => "test12.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 4
+            ],
+            [
+                'aircraft' => "Boeing 747-8B5",
+                'license_plate' => "HL7636",
+                'airline' => "Korean Air",
+                'location' => "Seoul Incheon Int'l - RKSI",
+                'country' => "South Korea",
+                'img_path' => "test13.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 9
+            ],
+            [
+                'aircraft' => "Boeing 747-446",
+                'license_plate' => "JA8088",
+                'airline' => "Japan Airlines (JAL)",
+                'location' => "Inflight",
+                'country' => "Guam",
+                'img_path' => "test14.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 16
+            ],
+            [
+                'aircraft' => "Boeing 747-48EF(SCD)",
+                'license_plate' => "HL7420",
+                'airline' => "Asiana Cargo",
+                'location' => "Los Angeles Int'l Airport - KLAX",
+                'country' => "USA - California",
+                'img_path' => "test15.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 12
+            ],
+            [
+                'aircraft' => "Fokker 50",
+                'license_plate' => "SE-LIO",
+                'airline' => "Amapola Flyg",
+                'location' => "Ostrava Leos Janacek Airport - LKMT",
+                'country' => "Czech Republic",
+                'img_path' => "test16.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 1,
+                'visit_count' => 20
+            ],
+            [
+                'aircraft' => "Agusta-Bell AB-206B JetRanger II",
+                'license_plate' => "OE-XJI",
+                'airline' => "Private",
+                'location' => "Other Location - Thalgau",
+                'country' => "Austria",
+                'img_path' => "test17.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 2,
+                'visit_count' => 18
+            ],
+            [
+                'aircraft' => "Fairchild A-10C Thunderbolt II",
+                'license_plate' => "79-0183",
+                'airline' => "United States - US Air Force (USAF)",
+                'location' => "Osan Air Base - RKSO",
+                'country' => "South Korea",
+                'img_path' => "test18.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 2,
+                'visit_count' => 15
+            ],
+            [
+                'aircraft' => "Douglas C-47B Skytrain",
+                'license_plate' => "N60154",
+                'airline' => "Private",
+                'location' => "Palm Springs Regional Airport - KPSP",
+                'country' => "USA - California",
+                'img_path' => "test19.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 2,
+                'visit_count' => 14
+            ],
+            [
+                'aircraft' => "Chance Vought F4U-4 Corsair",
+                'license_plate' => "96885",
+                'airline' => "United States - US Marine Corps",
+                'location' => "Other Location - USS Midway Museum, San Diego",
+                'country' => "USA - California",
+                'img_path' => "test20.jpg",
+                'date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'id_user' => 2,
+                'visit_count' => 22
+            ],
+        ]);
     }
 }
