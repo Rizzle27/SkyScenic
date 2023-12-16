@@ -25,6 +25,8 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'id_subscription',
+        'downloads_used'
     ];
 
     /**
@@ -47,11 +49,18 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function photos() {
+    public function photos()
+    {
         return $this->hasMany(Photo::class, 'id_user');
     }
 
-    public function newsArticles() {
+    public function newsArticles()
+    {
         return $this->hasMany(NewsArticle::class, 'id_user');
+    }
+
+    public function subscription()
+    {
+        return $this->belongsTo(Subscription::class, 'id_subscription');
     }
 }

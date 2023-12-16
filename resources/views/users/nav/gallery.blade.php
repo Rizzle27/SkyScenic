@@ -30,7 +30,7 @@
             @foreach ($photosByUser as $photo)
                 <div class="user-gallery-card col-4">
                     <a href="{{ url('/fotos/' . $photo->id) }}">
-                        <img class="object-fit-cover w-100 h-100"
+                        <img class="object-fit-cover w-100 h-100 rounded-2"
                             src="{{ asset('uploads/photos_uploads/' . $photo->img_path) }}"
                             alt="{{ $photo->aircraft . ' captado en ' . $photo->location }}">
                     </a>

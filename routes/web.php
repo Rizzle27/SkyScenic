@@ -60,3 +60,12 @@ Route::get('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesControl
 
 Route::post('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'deleteProcess'])
     ->whereNumber('id');
+
+// Suscripciones
+
+Route::get('/suscripciones', [\App\Http\Controllers\SubscriptionController::class, 'showPlans']);
+
+Route::get('/suscripciones/suscribirse/{id}', [\App\Http\Controllers\SubscriptionController::class, 'subscribe']);
+
+Route::get('/descargar-foto/{img_path}', [\App\Http\Controllers\PhotosController::class, 'download']);
+

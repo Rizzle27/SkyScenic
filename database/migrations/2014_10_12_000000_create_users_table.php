@@ -22,6 +22,9 @@ return new class extends Migration
             $table->enum('role', ['regular', 'admin', 'superadmin'])->default('regular');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('downloads_used')->default(0);
+
+            $table->foreignId('id_subscription')->nullable()->constrained('subscriptions')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }
 

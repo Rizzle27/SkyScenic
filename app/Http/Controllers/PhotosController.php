@@ -105,4 +105,21 @@ class PhotosController extends Controller
 
         return redirect('/usuarios/perfil/' . $photoUser->username);
     }
+
+    public function download($imgPath)
+    {
+        $user = Auth::user();
+
+        $public_path = public_path("uploads/photos_uploads");
+
+        $imgPathRoute = $public_path . '/' . $imgPath;
+
+        if (file_exists($imgPathRoute)) {
+            $user->downloads_used++;
+            $user->save();
+            return response()->download($imgPathRoute, $imgPath);
+        } else {
+            return redirect()->back()->with('error', 'Archivo no encontrado');
+        }
+    }
 }

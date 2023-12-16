@@ -195,6 +195,13 @@ input:-webkit-autofill:active {
     margin: 0.5rem;
 }
 
+.photo-download-container {
+    width: 38px;
+    height: 38px;
+    margin: 0.5rem;
+    background-color: #3e75ffae;
+}
+
 .photo-options {
     display: flex;
     justify-content: center;
