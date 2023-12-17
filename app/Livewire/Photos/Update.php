@@ -25,6 +25,7 @@ class Update extends Component
     public $oldImage;
 
     protected $rules = [
+        'img_path' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'aircraft' => 'required',
         'airline' => 'required',
         'license_plate' => 'required',
@@ -34,8 +35,9 @@ class Update extends Component
     ];
 
     protected $messages = [
-        'img_path.required' => 'La imagen es requerida.',
+        'img_path.required' => 'La imagen es obligatoria.',
         'img_path.image' => 'El archivo debe ser una imagen.',
+        'img_path.mimes' => 'La imagen debe ser de tipo jpeg, png, o jpg.',
         'img_path.max' => 'La imagen no puede ser más grande de 2 MB.',
         'aircraft.required' => 'El nombre de la aeronave es requerido.',
         'airline.required' => 'El nombre de la aerolínea es requerido.',
@@ -62,7 +64,7 @@ class Update extends Component
     {
         if($this->oldImage != $this->img_path) {
             return $this->validate([
-                'img_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'img_path' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
             ]);
         }
     }
@@ -95,7 +97,7 @@ class Update extends Component
 
         $photoUser = User::find($this->photo->id_user);
 
-        return redirect('/usuarios/perfil/' . $photoUser->username);
+        return redirect('/usuarios/perfil/' . $photoUser->username)->with('success', 'La foto se ha actualizado exitosamente.');
     }
 
     public function render()

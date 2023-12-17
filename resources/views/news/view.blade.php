@@ -5,6 +5,11 @@
 @endsection
 
 @section('content')
+    @if (session('success'))
+        <div class="success-message bg-ultramarine py-2">
+            <p class="text-light text-center m-0">{{ session('success') }}</p>
+        </div>
+    @endif
     <div class="d-flex flex-column mt-3 mx-3 m-navheight">
         @auth
             @if ($new->id_user == auth()->user()->id || auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin')

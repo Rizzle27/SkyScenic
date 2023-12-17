@@ -78,6 +78,6 @@ class NewsArticlesController extends Controller
 
         $new->delete();
 
-        return redirect('/usuarios/perfil/' . $newUser->username);
+        return redirect('/usuarios/perfil/' . $newUser->username)->with('success', 'La noticia se ha eliminado exitosamente.');
     }
 }

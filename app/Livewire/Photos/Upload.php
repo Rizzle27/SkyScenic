@@ -22,7 +22,7 @@ class Upload extends Component
     public $id_user;
 
     public $rules = [
-        'img_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'img_path' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'aircraft' => 'required|string|max:255',
         'airline' => 'required|string|max:255',
         'license_plate' => 'required|string|max:20',
@@ -33,7 +33,7 @@ class Upload extends Component
     ];
 
     public $messages = [
-        'img_path.required' => 'La imagen es requerida.',
+        'img_path.required' => 'La imagen es obligatoria.',
         'img_path.image' => 'El archivo debe ser una imagen.',
         'img_path.mimes' => 'La imagen debe ser de tipo jpeg, png, o jpg.',
         'img_path.max' => 'La imagen no puede ser más grande de 2 MB.',
@@ -69,7 +69,7 @@ class Upload extends Component
 
         $photo->save();
 
-        session()->flash('message', 'Foto subida con éxito');
+        session()->flash('message', 'Foto subida con éxito.');
 
         $this->reset([
             'img_path',

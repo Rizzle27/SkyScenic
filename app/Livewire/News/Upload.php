@@ -18,7 +18,7 @@ class Upload extends Component
     public $id_user;
 
     public $rules = [
-        'img_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'img_path' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'title' => 'required|string|max:255',
         'subtitle' => 'required|string|max:255',
         'body' => 'required|string',

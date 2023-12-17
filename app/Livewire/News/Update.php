@@ -23,7 +23,7 @@ class Update extends Component
     public $oldImage;
 
     public $rules = [
-        'img_path' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'img_path' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'title' => 'required|string|max:255',
         'subtitle' => 'required|string|max:255',
         'body' => 'required|string',
@@ -59,7 +59,7 @@ class Update extends Component
     {
         if($this->oldImage != $this->img_path) {
             return $this->validate([
-                'img_path' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'img_path' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
             ]);
         }
     }
@@ -92,7 +92,7 @@ class Update extends Component
 
         $newUser = User::find($this->new->id_user);
 
-        return redirect('noticias/' . $newUser->id);
+        return redirect('noticias/' . $newUser->id)->with('success', 'La noticia se ha actualizado exitosamente.');
     }
 
     public function render()

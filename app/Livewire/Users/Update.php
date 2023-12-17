@@ -47,7 +47,7 @@ class Update extends Component
     {
         if($this->oldAvatar != $this->avatar) {
             return $this->validate([
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
             ]);
         }
     }

@@ -26,18 +26,20 @@
                 </div>
             @endif
         @endauth
-        @if (auth()->user()->id_subscription != null && $photo->id_user != auth()->user()->id)
-            <a href="{{ url('descargar-foto/' . $photo->img_path) }}"
-                class="d-flex justify-content-center align-items-center photo-download-container btn p-2 position-absolute bg-ultramarine rounded-circle end-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                    class="bi bi-download text-light" viewBox="0 0 16 16">
-                    <path
-                        d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
-                    <path
-                        d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-                </svg>
-            </a>
-        @endif
+        @auth
+            @if (auth()->user()->id_subscription != null && $photo->id_user != auth()->user()->id)
+                <a href="{{ url('descargar-foto/' . $photo->img_path) }}"
+                    class="d-flex justify-content-center align-items-center photo-download-container btn p-2 position-absolute bg-ultramarine rounded-circle end-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-download text-light" viewBox="0 0 16 16">
+                        <path
+                            d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+                        <path
+                            d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                    </svg>
+                </a>
+            @endif
+        @endauth
         <img class="w-100 rounded-bottom-4" src="{{ asset('uploads/photos_uploads/' . $photo->img_path) }}"
             alt="Foto de {{ $photo->aircraft }} tomada en {{ $photo->location }}">
     </div>

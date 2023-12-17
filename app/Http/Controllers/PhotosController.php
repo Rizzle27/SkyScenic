@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -103,7 +104,7 @@ class PhotosController extends Controller
 
         $photo->delete();
 
-        return redirect('/usuarios/perfil/' . $photoUser->username);
+        return redirect('/usuarios/perfil/' . $photoUser->username)->with('success', 'La foto se ha eliminado exitosamente.');
     }
 
     public function download($imgPath)
@@ -112,14 +113,23 @@ class PhotosController extends Controller
 
         $public_path = public_path("uploads/photos_uploads");
 
+        $plan = Subscription::findOrFail($user->id_subscription);
+
+        $downloadLimit = $plan->download_limit;
+
         $imgPathRoute = $public_path . '/' . $imgPath;
 
         if (file_exists($imgPathRoute)) {
-            $user->downloads_used++;
-            $user->save();
-            return response()->download($imgPathRoute, $imgPath);
+            if ($user->downloads_used < $downloadLimit) {
+                $user->downloads_used++;
+                $user->save();
+
+                return response()->download($imgPathRoute, $imgPath);
+            } else {
+                return redirect()->back()->with('error', 'Límite de descargar alcanzado.');
+            }
         } else {
-            return redirect()->back()->with('error', 'Archivo no encontrado');
+            return redirect()->back()->with('error', 'Archivo no encontrado.');
         }
     }
 }

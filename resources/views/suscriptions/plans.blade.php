@@ -28,17 +28,21 @@
                         <h3 class="text-ultramarine">Suscripción de {{ $subscription->name }}</h3>
                         <p class="text-light">Con esta suscripción vas a poder:</p>
                         <ul class="list-unstyled">
-                            <li class="text-light"><span class="text-ultramarine fs-4">✓</span> Descargar un máximo de <span
-                                    class="text-ultramarine">{{ $subscription->download_limit }}</span> fotos al mes.</li>
-                            <li class="text-light"><span class="text-ultramarine fs-4">✓</span> Descargar las imágenes en la
+                            <li class="text-light"><span class="text-ultramarine fs-4">✓</span> Descargar un máximo de
+                                <span class="text-ultramarine">{{ $subscription->download_limit }}</span> fotos al mes.
+                            </li>
+                            <li class="text-light"><span class="text-ultramarine fs-4">✓</span> Descargar las imágenes
+                                en la
                                 mejor resolución.</li>
-                            <li class="text-light"><span class="text-ultramarine fs-4">✓</span> Utilizar las imágenes para
+                            <li class="text-light"><span class="text-ultramarine fs-4">✓</span> Utilizar las imágenes
+                                para
                                 uso personal o comercial.</li>
                         </ul>
                         <div class="d-flex justify-content-between align-items-center">
                             <b class="text-ultramarine fw-bold fs-2">{{ $subscription->price }} <span
                                     class="fs-6 text-light">ars</span></b>
-                            <a class="btn bg-ultramarine text-light rounded-pill" href="{{ url('suscripciones/suscribirse/' . $subscription->id) }}">Comprar</a>
+                            <a class="btn bg-ultramarine text-light rounded-pill"
+                                href="{{ url('suscripciones/suscribirse/' . $subscription->id) }}">Comprar</a>
                         </div>
                     </div>
                 </div>
