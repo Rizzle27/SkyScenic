@@ -48,7 +48,7 @@ Route::post('/fotos/eliminar/{id}', [\App\Http\Controllers\PhotosController::cla
 Route::get('/noticias', [\App\Http\Controllers\NewsArticlesController::class, 'news']);
 
 Route::get('/noticias/subir', [\App\Http\Controllers\NewsArticlesController::class, 'uploadForm'])
-    ->middleware(['auth']);
+    ->middleware(['auth', 'admin', 'superadmin']);
 
 Route::get('/noticias/{id}', [\App\Http\Controllers\NewsArticlesController::class, 'view']);
 
@@ -63,9 +63,22 @@ Route::post('/noticias/eliminar/{id}', [\App\Http\Controllers\NewsArticlesContro
 
 // Suscripciones
 
-Route::get('/suscripciones', [\App\Http\Controllers\SubscriptionController::class, 'showPlans']);
+Route::get('/suscripciones', [\App\Http\Controllers\SubscriptionController::class, 'showPlans'])
+    ->middleware(['auth']);
 
-Route::get('/suscripciones/suscribirse/{id}', [\App\Http\Controllers\SubscriptionController::class, 'subscribe']);
+Route::get('/suscripciones/suscribirse/{id}', [\App\Http\Controllers\SubscriptionController::class, 'subscribe'])
+    ->middleware(['auth']);
 
 Route::get('/descargar-foto/{img_path}', [\App\Http\Controllers\PhotosController::class, 'download']);
 
+Route::post('/suscripciones/cancelar/{id}', [\App\Http\Controllers\SubscriptionController::class, 'cancel'])
+    ->middleware(['auth']);
+
+// Admin
+
+Route::get('/admin/usuarios', [\App\Http\Controllers\AdminController::class, 'users'])
+    ->middleware(['auth', 'admin', 'superadmin']);
+
+// Mercadopago
+
+Route::get('/suscripciones/pago/{id}', [\App\Http\Controllers\MercadoPagoController::class, 'showForm']);

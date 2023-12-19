@@ -7,6 +7,7 @@ use App\Models\Subscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Carbon\Carbon;
 
 class SubscriptionController extends Controller
 {
@@ -30,10 +31,25 @@ class SubscriptionController extends Controller
 
         if ($user) {
             $user->id_subscription = $subscriptionId;
+            $user->sub_start = Carbon::now()->toDateString();
+            $user->sub_end = Carbon::now()->addMonth()->toDateString();
             $user->save();
-            return redirect('/usuarios/perfil/' . $user->username);
+            $subscription = Subscription::findOrFail($id);
+            return redirect('/usuarios/perfil/' . $user->username)->with('success', $user->username . ' gracias por convertirte en ' . $subscription->name . ' y bienvenido.');
         } else {
             return redirect('/ususarios/registrarse')->with('error', 'Para suscribirte a nuestros planes necesitas crear una cuenta.');
         }
+    }
+
+    public function cancel() {
+        $user = Auth::user();
+
+        $user->id_subscription = null;
+        $user->sub_start = null;
+        $user->sub_end = null;
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Suscripción cancelada exitosamente.');
     }
 }

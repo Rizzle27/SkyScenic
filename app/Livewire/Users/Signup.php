@@ -66,7 +66,7 @@ class Signup extends Component
 
         Auth::login($user);
 
-        return redirect("/");
+        return redirect('/');
     }
 
     public function updated($propertyName)

@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.2",
         "livewire/volt": "^1.0",
+        "mercadopago/dx-php": "^3.0",
         "twbs/bootstrap-icons": "^1.11"
     },
     "require-dev": {

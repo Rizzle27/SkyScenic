@@ -1,7 +1,8 @@
-<li>
-    <a href="{{ url('noticias') }}">
+<li class="order-lg-2">
+    <a class="text-decoration-none" href="{{ url('noticias') }}">
+        <p class="d-none d-lg-block text-light m-0">Noticias</p>
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-            class="bi bi-newspaper
+            class="d-lg-none bi bi-newspaper
             @if (request()->is('noticias*') && !request()->is('noticias/subir'))
                 text-ultramarine
             @else

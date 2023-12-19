@@ -31,10 +31,6 @@ class NewsArticlesController extends Controller
     }
 
     public function uploadForm() {
-        if (Auth::user()->role == "regular") {
-            return redirect('/');
-        }
-
         return view('news.upload');
     }
 
@@ -78,6 +74,6 @@ class NewsArticlesController extends Controller
 
         $new->delete();
 
-        return redirect('/usuarios/perfil/' . $newUser->username)->with('success', 'La noticia se ha eliminado exitosamente.');
+        return redirect('/noticias')->with('success', 'La noticia se ha eliminado exitosamente.');
     }
 }

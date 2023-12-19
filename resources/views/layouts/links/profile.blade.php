@@ -1,8 +1,8 @@
-<li>
+<li class="order-lg-5">
     @guest
-        <a href="{{ url('/usuarios/iniciar-sesion') }}">
+        <a class="d-lg-none text-decoration-none" href="{{ url('/usuarios/registrarse') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                class="bi bi-person-circle
+                class="d-lg-none bi bi-person-circle
                 @if (request()->is('usuarios/iniciar-sesion') || request()->is('usuarios/registrarse'))
                     text-ultramarine
                 @else
@@ -15,7 +15,8 @@
         </a>
     @endguest
     @auth
-        <a href="{{ url('/usuarios/perfil/' . $user->username) }}">
+        <a class="profile-link text-decoration-none px-lg-2 py-lg-1" href="{{ url('/usuarios/perfil/' . $user->username) }}">
+            <p class="d-none d-lg-block text-light m-0">{{ $user->username }}</p>
             <img class="avatar-thumbnail object-fit-cover rounded-circle"
                 src="{{ $avatar == '' ? asset('assets/icons/user.svg') : asset('uploads/avatar_uploads/' . $avatar) }}"
                 alt="Foto de perfil">

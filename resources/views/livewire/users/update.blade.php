@@ -1,6 +1,6 @@
-<div>
+<div class="mt-4 col-8 m-navheight mx-auto content-position">
     <h2 class="text-secondary text-center my-3 fs-3">Editar perfil</h2>
-    <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="update">
+    <form class="col-12 col-lg-6 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="update">
         @csrf
         <label class="d-flex flex-column justify-content-center align-items-center">
             <input class="avatar-input" id="avatar" type="file" accept="image/*" wire:model="avatar">
@@ -45,6 +45,7 @@
         </label>
 
         <label>
+            <p class="text-secondary mb-1 ms-3">Nombre de usuario</p>
             <input class="custom-fillable-input text-light w-100" id="username" name="username" type="text"
                 placeholder="Nombre de usuario" required value="{{ old('username') }}" wire:model="username">
             @error('username')
@@ -53,6 +54,7 @@
         </label>
 
         <label>
+            <p class="text-secondary mb-1 ms-3">Nombre</p>
             <input class="custom-fillable-input text-light w-100" id="name" name="name" type="text"
                 placeholder="Nombre" value="{{ old('name') }}" wire:model.live="name">
             @error('name')
@@ -61,6 +63,7 @@
         </label>
 
         <label>
+            <p class="text-secondary mb-1 ms-3">Apellido</p>
             <input class="custom-fillable-input text-light w-100" id="lastname" name="lastname" type="text"
                 placeholder="Apellido" value="{{ old('lastname') }}" wire:model.live="lastname">
             @error('lastname')
@@ -73,5 +76,7 @@
                     class="upload-loading-gif position-absolute" src="{{ asset('assets/icons/Spinner.gif') }}"
                     height="32" alt="Gif de carga del formulario"></div>Editar
         </button>
+
+        <p class="text-center text-light">Recordá que rellenar con tu nombre y apellido es opcional.</p>
     </form>
 </div>

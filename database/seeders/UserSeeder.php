@@ -24,7 +24,10 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'role' => 'superadmin',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+
+                'sub_start' => now()->toDateString(),
+                'sub_end' => now()->addMonth()->toDateString(),
             ],
             [
                 'id_subscription' => 3,
@@ -36,7 +39,10 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'role' => 'admin',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+
+                'sub_start' => now()->toDateString(),
+                'sub_end' => now()->addMonth()->toDateString(),
             ],
             [
                 'id_subscription' => null,
@@ -48,7 +54,10 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'role' => 'regular',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+
+                'sub_start' => null,
+                'sub_end' => null,
             ],
             [
                 'id_subscription' => 2,
@@ -60,7 +69,10 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('123456'),
                 'role' => 'regular',
                 'created_at' => now(),
-                'updated_at' => now()
+                'updated_at' => now(),
+
+                'sub_start' => now()->toDateString(),
+                'sub_end' => now()->addMonth()->toDateString(),
             ],
         ]);
     }

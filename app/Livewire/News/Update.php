@@ -23,7 +23,6 @@ class Update extends Component
     public $oldImage;
 
     public $rules = [
-        'img_path' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'title' => 'required|string|max:255',
         'subtitle' => 'required|string|max:255',
         'body' => 'required|string',
@@ -92,7 +91,7 @@ class Update extends Component
 
         $newUser = User::find($this->new->id_user);
 
-        return redirect('noticias/' . $newUser->id)->with('success', 'La noticia se ha actualizado exitosamente.');
+        return redirect('noticias/' . $new->id)->with('success', 'La noticia se ha actualizado exitosamente.');
     }
 
     public function render()

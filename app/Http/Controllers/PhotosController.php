@@ -43,16 +43,16 @@ class PhotosController extends Controller
 
         $user = User::findOrFail($userId);
 
-        $photosByUser = $user->photos;
+        $photos = $user->photos;
 
-        $photosByUser = $photosByUser->filter(function ($item) use ($id) {
+        $photos = $photos->filter(function ($item) use ($id) {
             return $item->id !== $id;
         });
 
         return view('photos.view', [
             'photo' => $photo,
             'user' => $user,
-            'photosByUser' => $photosByUser,
+            'photos' => $photos,
         ]);
     }
 

@@ -1,6 +1,6 @@
-<div>
+<div class="mt-4 col-8 m-navheight mx-auto content-position">
     <h2 class="text-secondary text-center my-3 fs-3">Iniciar sesión</h2>
-    <form class="col-10 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="login">
+    <form class="col-12 col-lg-6 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="login">
         @csrf
 
         <label>

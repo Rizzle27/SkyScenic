@@ -26,7 +26,9 @@ class User extends Authenticatable
         'password',
         'role',
         'id_subscription',
-        'downloads_used'
+        'downloads_used',
+        'sub_start',
+        'sub_end',
     ];
 
     /**

@@ -25,7 +25,6 @@ class Update extends Component
     public $oldImage;
 
     protected $rules = [
-        'img_path' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
         'aircraft' => 'required',
         'airline' => 'required',
         'license_plate' => 'required',
@@ -62,7 +61,7 @@ class Update extends Component
 
     public function validateImage()
     {
-        if($this->oldImage != $this->img_path) {
+        if ($this->oldImage != $this->img_path) {
             return $this->validate([
                 'img_path' => 'image|mimes:jpeg,png,jpg,webp|max:2048',
             ]);

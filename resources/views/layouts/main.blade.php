@@ -39,18 +39,41 @@
     <title>@yield('title')</title>
 </head>
 
-<body class="d-flex flex-column bg-dark">
-    <header class="order-last order-lg-first fixed-bottom">
+<body class="d-flex flex-column bg-customdark">
+    <header class="fixed-bottom sticky-lg-top">
         @include('layouts.nav.bottom-nav')
     </header>
-    <section class="col-12 mx-auto pb-3">
-        <div class="d-flex align-items-center py-3 bg-dark">
+    <section class="col-12 mx-auto">
+        <div class="d-flex d-lg-none align-items-center py-3 bg-customdark fixed-top">
             @include('layouts.nav.top-nav')
         </div>
+        <div class="nav-margin-div d-lg-none"></div>
         @yield('content')
     </section>
+    <aside class="d-none d-lg-flex">
+        <div class="align-items-center py-3 bg-customdark position-absolute">
+            @include('layouts.nav.lg-top-nav')
+        </div>
+    </aside>
+    <footer
+        class="d-none col-12 d-lg-flex bg-ultramarine py-2 mx-auto fixed-bottom align-items-center justify-content-around">
+        <div>
+            <h2 class="text-light m-0">SkyScenic</h2>
+        </div>
+        <div>
+            <p class="text-light m-0">García, Stella, Agüero | DWTA4</p>
+        </div>
+        <div>
+            <ul class="d-flex list-unstyled gap-3 m-0">
+                @include('layouts.links.home')
+                @include('layouts.links.news')
+            </ul>
+        </div>
+    </footer>
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
 </body>
 
 </html>

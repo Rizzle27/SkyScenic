@@ -1,8 +1,9 @@
-<li>
+<li class="order-lg-3 d-lg-none">
     @guest
-        <a href="{{ url('/usuarios/registrarse') }}">
+        <a class="text-decoration-none" href="{{ url('/usuarios/registrarse') }}">
+            <p class="d-none d-lg-block text-light m-0">Subir foto</p>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                class="bi bi-plus-circle-fill text-light" viewBox="0 0 16 16">
+                class="d-lg-none bi bi-plus-circle-fill text-light" viewBox="0 0 16 16">
                 <path
                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
             </svg>
@@ -10,9 +11,10 @@
     @endguest
     @auth
         @if (auth()->user()->role == 'regular')
-            <a href="{{ url('/fotos/subir') }}">
+            <a class="text-decoration-none" href="{{ url('/fotos/subir') }}">
+                <p class="d-none d-lg-block text-light m-0">Subir foto</p>
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                    class="bi bi-plus-circle-fill {{ request()->is('fotos/subir') ? 'text-ultramarine' : 'text-light' }}"
+                    class="d-lg-none bi bi-plus-circle-fill {{ request()->is('fotos/subir') ? 'text-ultramarine' : 'text-light' }}"
                     viewBox="0 0 16 16">
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z" />
@@ -20,8 +22,9 @@
             </a>
         @elseif (auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin')
             <button class="btn p-0" onclick="adminUploadShow()">
+                <p class="d-none d-lg-block text-light m-0">Subir</p>
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
-                    class="bi bi-plus-circle-fill
+                    class="d-lg-none bi bi-plus-circle-fill
                     @if (request()->is('fotos/subir') || request()->is('noticias/subir'))
                         text-ultramarine
                     @else

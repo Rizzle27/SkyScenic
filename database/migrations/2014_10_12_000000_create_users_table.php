@@ -24,6 +24,9 @@ return new class extends Migration
             $table->timestamps();
             $table->integer('downloads_used')->default(0);
 
+            $table->date('sub_start')->nullable();
+            $table->date('sub_end')->nullable();
+
             $table->foreignId('id_subscription')->nullable()->constrained('subscriptions')->cascadeOnUpdate()->cascadeOnDelete();
         });
     }

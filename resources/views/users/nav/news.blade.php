@@ -28,14 +28,15 @@
     @if ($newsByUser->count() > 0)
         <div class="d-flex flex-wrap">
             @foreach ($newsByUser as $new)
-                <a class="text-decoration-none" href="{{ url('noticias/' . $new->id) }}">
+                <a class="col-md-6 text-decoration-none" href="{{ url('noticias/' . $new->id) }}">
                     <div
-                        class="d-flex col-12 py-3 px-3 border-1 border-secondary border-bottom gap-2 justify-content-center">
-                        <div class="col-8 d-flex flex-column">
+                        class="d-flex flex-md-column col-12 py-3 px-3 border-1 border-secondary border-bottom gap-2 justify-content-center">
+                        <div class="order-md-2 col-8 col-md-12 d-flex flex-column">
                             <p class="fs-6 text-secondary m-0">{{ $new->date }}</p>
-                            <h2 class="fs-5 text-light m-0">{{ $new->title }}</h2>
+                            <h2 class="fs-5 text-light">{{ $new->title }}</h2>
+                            <p class="d-none d-sm-block fs-6 text-light m-0">{{ $new->subtitle }}</p>
                         </div>
-                        <div class="new-img-container col-4 d-flex flex-column">
+                        <div class="order-md-1 col-4 col-md-12 d-flex flex-column">
                             <img class="w-100 h-100 object-fit-cover rounded-4"
                                 src="{{ asset('uploads/news_uploads/' . $new->img_path) }}" alt="{{ $new->title }}">
                         </div>

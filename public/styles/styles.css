@@ -2,6 +2,10 @@ header {
     z-index: 2000 !important;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 /* reinicio estilos de google para los forms autocompletados */
 
 input:-webkit-autofill,
@@ -22,12 +26,28 @@ input:-webkit-autofill:active {
 
 /* colores y estilos personalizados */
 
+.fs-7 {
+    font-size: 0.75rem;
+}
+
 .text-ultramarine {
     color: #3e74ff;
 }
 
+.text-royalepurple {
+    color: #6c2576;
+}
+
+.bg-customdark {
+    background-color: #1e1e1e;
+}
+
 .bg-ultramarine {
     background-color: #3e74ff;
+}
+
+.bg-royalepurple {
+    background-color: #6c2576;
 }
 
 .border-ultramarine {
@@ -36,6 +56,10 @@ input:-webkit-autofill:active {
 
 .border-bottom-ultramarine {
     border-bottom: 2px solid #3e74ff;
+}
+
+.border-bottom-royalepurple {
+    border-bottom: 2px solid #6c2576;
 }
 
 .custom-fillable-input {
@@ -73,15 +97,10 @@ input:-webkit-autofill:active {
 }
 
 .m-navheight {
-    margin-bottom: 46px;
+    margin-bottom: 62px;
 }
 
 /* welcome */
-
-.gallery {
-    columns: 2;
-    gap: 0.5rem;
-}
 
 .scroll-fade {
     height: 3rem;
@@ -167,7 +186,7 @@ input:-webkit-autofill:active {
 }
 
 .avatar-admin-border {
-    outline: 2px solid #FFBB00;
+    outline: 2px solid #ffbb00;
 }
 
 .user-date-container {
@@ -199,25 +218,45 @@ input:-webkit-autofill:active {
     width: 38px;
     height: 38px;
     margin: 0.5rem;
-    background-color: #3e75ffae;
+    right: 0;
+    background-color: #3e74ff;
+    box-shadow: 0px 0px 3px 1px #1e1e1e;
 }
 
 .photo-options {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #212529b4;
+    background-color: #212529;
+    box-shadow: 0px 0px 3px 1px #1e1e1e;
     height: 28px;
     width: 28px;
 }
 
 /* noticias */
 
-.new-img-container {
+.new-card-body {
+    flex: 5;
+}
+
+.new-card-image {
     aspect-ratio: 1;
+    flex: 2;
 }
 
 /* navegación arriba */
+
+.navbar {
+    background-color: #1e1e1e;
+}
+
+.nav-margin-div {
+    height: 66px;
+}
+
+.footer-margin-div {
+    height: 60px;
+}
 
 .nav-button {
     width: 34px;
@@ -242,12 +281,10 @@ input:-webkit-autofill:active {
 #profileNavContainer {
     display: none;
     border-left: 2px solid #3e74ff;
-    width: 40vw;
+    width: 50vw;
     height: 90vh;
-    right: -40vw;
+    right: -50vw;
     top: 66px;
-    background-color: #283139;
-    /* backdrop-filter: blur(10px); */
 }
 
 /* navegacion abajo */
@@ -320,6 +357,215 @@ input:-webkit-autofill:active {
     overflow-y: scroll;
     border-radius: 20px;
     border: 2px solid #3e74ff;
+}
+
+/* welcome*/
+
+.gallery {
+    columns: 2;
+    gap: 0.5rem;
+}
+
+/* suscripciones */
+
+.top-plan {
+    border-bottom: 1px solid #3e74ff;
+}
+
+/* admin */
+
+.div-avatar-container {
+    height: 40px;
+    width: 40px;
+}
+
+@media only screen and (min-width: 576px) {
+    /* welcome*/
+
+    .gallery {
+        columns: 3;
+        gap: 0.5rem;
+    }
+
+    /* noticias */
+
+    .new-card-container {
+        background-color: #292929;
+        padding: 1rem;
+        border-radius: .5rem;
+        width: calc(50% - 8px);
+    }
+
+    .new-card-body {
+        flex: none;
+    }
+
+    .new-card-image {
+        flex: none;
+        aspect-ratio: 16/11;
+    }
+
+    /* nav top */
+
+    #profileNavContainer {
+        width: 35vw;
+        right: -35vw;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .content-position {
+        position: absolute;
+        left: 18rem;
+        height: 100vh;
+    }
+
+    /* welcome*/
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+    }
+
+    .gallery-card {
+        aspect-ratio: 16/12;
+        margin: 0 !important;
+        position: relative;
+    }
+
+    .gallery-card-image {
+        height: 100%;
+    }
+
+    .gallery-card-body {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .gallery-card img {
+        width: 100%;
+        height: 100%;
+        border-radius: 0 !important;
+    }
+
+    .lg-top-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .lg-top-gallery-card {
+        box-sizing: border-box;
+        position: relative;
+    }
+
+    .lg-top-gallery-card:nth-child(1),
+    .lg-top-gallery-card:nth-child(2),
+    .lg-top-gallery-card:nth-child(3) {
+        width: calc(33% - 8px);
+    }
+
+    .lg-top-gallery-card:nth-child(4),
+    .lg-top-gallery-card:nth-child(5) {
+        width: calc(50% - 8px);
+    }
+
+    .lg-top-gallery-body {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+    /* noticias */
+
+    .news-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+    }
+
+    .new-card-container {
+        width: 100%;
+    }
+
+    /* fotos */
+
+    .lg-photo-label-container {
+        border: 1px solid #f8f9fa;
+        border-radius: 1rem;
+        padding: 2rem;
+    }
+
+    /* nav-bottom (ahora top) */
+
+    .plans-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #6c2576;
+        border-radius: 50px;
+    }
+
+    .plans-link svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .profile-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid #3e74ff;
+        border-radius: 50px;
+    }
+
+    /* nav top (ahora right) */
+
+    #lgProfileNavContainer {
+        z-index: 2100;
+        width: 14rem;
+        border-right: 1px solid #3e74ff;
+        height: 100vh;
+        left: 0;
+        top: 0;
+    }
+
+    /* nav bottom */
+
+    .navbar {
+        background-color: transparent;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .content-position {
+        left: 22rem;
+    }
+
+    /* welcome*/
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* nav-bottom (ahora top) */
+
+    .upload-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* suscripciones */
+
+    .top-plan {
+        border-bottom: none;
+        border-top: 1px solid #3e74ff;
+    }
 }
 
 /* estilos de librerias */
