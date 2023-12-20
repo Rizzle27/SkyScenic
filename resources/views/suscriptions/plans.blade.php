@@ -1,10 +1,14 @@
 @php
     use App\Models\Subscription;
+    use Carbon\Carbon;
 
     if (auth()->user()->id_subscription != null) {
         $planId = auth()->user()->id_subscription;
 
         $plan = Subscription::findOrFail($planId);
+
+        $formattedStartDate = Carbon::parse(auth()->user()->sub_start)->format('d/m/Y');
+        $formattedEndDate = Carbon::parse(auth()->user()->end)->format('d/m/Y');
     }
 @endphp
 
@@ -15,21 +19,28 @@
 @endsection
 
 @section('content')
-    <div class="mt-4 col-11 col-md-10 col-lg-8 mx-auto content-position mb-5 pb-5">
+    <div class="p-3 p-lg-0">
         @if (session('success'))
             <div class="success-message bg-ultramarine py-2 m-4 rounded-pill">
                 <p class="text-light text-center m-0">{{ session('success') }}</p>
             </div>
         @endif
+        @if (session('error'))
+            <div class="error-message bg-danger py-2 m-4 rounded-pill">
+                <p class="text-light text-center m-0">{{ session('error') }}</p>
+            </div>
+        @endif
         @if (auth()->user()->id_subscription == null)
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column col-9 mx-auto">
                 <h2 class="text-light fs-4">Obtené la licencia de las mejores imágenes para usarlas a tu gusto.</h2>
-                <p class="text-light mb-5">Las fotografías de este sitio están bajo derechos de autor. Si te interesa, ¡estas
+                <p class="text-light mb-3 mb-lg-5">Las fotografías de este sitio están bajo derechos de autor. Si te
+                    interesa, ¡estas
                     suscripciones son para que puedas utilizarlas a tu gusto!</p>
             </div>
-            <div class="d-flex flex-column flex-xl-row gap-4">
+            <div
+                class="d-flex flex-column flex-xl-row justify-content-center gap-4 align-items-center align-items-xl-stretch">
                 @foreach ($subscriptions as $subscription)
-                    <div class="d-flex flex-column border-ultramarine rounded-5">
+                    <div class="d-flex flex-column border-ultramarine rounded-5 col-8 col-xl-3">
                         @if ($subscription->id === optional($subscriptionWithMostUsers)->id)
                             <div class="top-plan order-xl-2 d-flex align-items-center gap-2 col-12 py-2 px-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
@@ -65,19 +76,22 @@
                 @endforeach
             </div>
         @else
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column col-9 mx-auto">
                 <h2 class="text-light fs-4">¡<span class="text-ultramarine">{{ auth()->user()->username }}</span>, ya estás
                     suscrito!</h2>
-                <p class="text-light mb-5">Desde <b>SkyScenic</b> agradecemos profundamente que te hayas decidido a
+                <p class="text-light mb-3 mb-lg-5">Desde <b>SkyScenic</b> agradecemos profundamente que te hayas decidido a
                     contratar el
-                    servicio de nuestro plan <span class="text-ultramarine">{{ $plan->name }}</span> desde el <span class="text-ultramarine">{{ auth()->user()->sub_start }}</span> hasta el <span class="text-ultramarine">{{ auth()->user()->sub_end }}</span>. Si tenés dudas sobre
+                    servicio de nuestro plan <span class="text-ultramarine">{{ $plan->name }}</span> desde el <span
+                        class="text-ultramarine">{{ $formattedStartDate }}</span> hasta el <span
+                        class="text-ultramarine">{{ $formattedEndDate }}</span>. Si tenés dudas sobre
                     este plan, a continuación te dejamos todos los planes disponibles para que cambies al que mejor se
                     adapte
                     a tus necesidades.</p>
             </div>
-            <div class="d-flex flex-column flex-xl-row gap-4">
+            <div
+                class="d-flex flex-column flex-xl-row justify-content-center gap-4 align-items-center align-items-xl-stretch">
                 @foreach ($subscriptions as $subscription)
-                    <div class="d-flex flex-column border-ultramarine rounded-5">
+                    <div class="d-flex flex-column border-ultramarine rounded-5 col-8 col-xl-3">
                         @if ($subscription->id === optional($subscriptionWithMostUsers)->id)
                             <div class="top-plan order-xl-2 d-flex align-items-center gap-2 col-12 py-2 px-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"

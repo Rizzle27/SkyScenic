@@ -43,8 +43,12 @@ class Admin extends Component
         $user = User::findOrFail($id);
 
         if (Auth::user()->id != $user->id) {
-            $user->delete();
-            return redirect()->back()->with('success', 'Usuario eliminado con éxito.');
+            if($user->role != "superadmin") {
+                $user->delete();
+                return redirect()->back()->with('success', 'Usuario eliminado con éxito.');
+            } else {
+                return redirect()->back()->with('error', 'No podés eliminar a un superadmin.');
+            }
         } else {
             return redirect()->back()->with('error', 'No te podés eliminar a vos mismo.');
         }

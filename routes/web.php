@@ -81,4 +81,12 @@ Route::get('/admin/usuarios', [\App\Http\Controllers\AdminController::class, 'us
 
 // Mercadopago
 
+Route::get('/suscripciones/pago/success', [\App\Http\Controllers\MercadoPagoController::class, 'success']);
+
+Route::get('/suscripciones/pago/pending', [\App\Http\Controllers\MercadoPagoController::class, 'pending']);
+
+Route::get('/suscripciones/pago/failure', [\App\Http\Controllers\MercadoPagoController::class, 'failure']);
+
 Route::get('/suscripciones/pago/{id}', [\App\Http\Controllers\MercadoPagoController::class, 'showForm']);
+
+Route::post('/suscripcion/webhook', [\App\Http\Controllers\MercadoPagoWebhookController::class, 'subscribeNotification']);

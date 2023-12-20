@@ -5,14 +5,13 @@
 @endsection
 
 @section('content')
-<div class="col-12 col-lg-8 mx-auto content-position">
-    @if (session('success'))
-        <div class="success-message bg-ultramarine py-2 rounded-pill m-4">
-            <p class="text-light text-center m-0">{{ session('success') }}</p>
-        </div>
-    @endif
-    <div class="col-md-12 mx-auto">
-        <div class="col-10 mx-auto mt-4 mb-5">
+    <div id="profileContainer" class="mx-auto mt-4 p-lg-0 col-12 col-sm-10 col-xl-6">
+        @if (session('success'))
+            <div class="success-message bg-ultramarine py-2 rounded-pill m-4">
+                <p class="text-light text-center m-0">{{ session('success') }}</p>
+            </div>
+        @endif
+        <div class="d-flex flex-column mx-auto mb-5">
             @include('users.nav.profile')
         </div>
         <div class="swiper">
@@ -48,5 +47,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

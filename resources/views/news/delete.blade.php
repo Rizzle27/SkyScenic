@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="col-11 col-lg-8 mx-auto my-3 content-position">
+    <div class="col-10 col-sm-9 col-md-8 col-lg-9 col-xl-8 col-xxl-6 mx-auto">
         <h2 class="text-secondary text-center my-3 fs-3">Eliminar noticia</h2>
 
         <p class="text-secondary fs-6 m-0">{{ $new->date }}</p>

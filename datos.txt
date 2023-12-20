@@ -1,0 +1,16 @@
+Alumnos:
+García Lucas, Agüero Nicolás, Stella Belén
+
+Docente:
+Santiago Gallino
+
+Materia:
+Portales y Comercio Electrónico
+
+Motivo:
+Trabajo final
+
+Fecha de entrega: 20/12/2023
+Fecha de final: 21/12/2023
+
+Comisión: DWT4AH

@@ -1,13 +1,10 @@
-<div class="mt-4 col-10 col-md-8 mx-auto content-position">
+<div class="col-10 col-sm-9 col-md-8 col-lg-9 col-xl-8 col-xxl-6 mx-auto">
     <h2 class="text-secondary text-center my-3 fs-3">Subir una noticia</h2>
     <form class="d-flex flex-column flex-lg-row justify-content-center mx-auto gap-4" wire:submit.prevent="uploadNew">
         @csrf
-        <div class="lg-photo-label-container d-flex flex-column gap-4 col-lg-6 m-navheight">
-            <label class="photo-label d-flex justify-content-center position-relative" for="img_path">
+        <div class="lg-photo-label-container d-flex flex-column gap-4 col-lg-6">
+            <label class="photo-label d-flex flex-column justify-content-center position-relative" for="img_path">
                 <input class="photo-input" id="img_path" type="file" accept="image/*" wire:model="img_path">
-                @error('img_path')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
 
                 {{-- preview de la imagen --}}
 
@@ -25,6 +22,11 @@
                         <img class="photo-svg" src="{{ asset('assets/icons/photo.svg') }}">
                     </div>
                 @endif
+                <div class="my-2 text-center">
+                    @error('img_path')
+                        <p class="m-0 text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
             </label>
             <div>
                 <p class="m-0 d-none d-lg-block text-light text-center">Podés subir la foto haciendo click en el
@@ -35,7 +37,7 @@
             </div>
         </div>
 
-        <div class="justify-content-start d-flex flex-column gap-4 col-lg-6 m-navheight">
+        <div class="justify-content-start d-flex flex-column gap-4 col-lg-6">
             <label>
                 <input class="custom-fillable-input text-light w-100" id="title" name="title" type="text"
                     placeholder="Título" required wire:model="title">
@@ -53,7 +55,7 @@
             </label>
 
             <label>
-                <textarea class="custom-fillable-textarea text-light w-100" id="body" name="body" rows="3"
+                <textarea class="custom-fillable-textarea text-light w-100" id="body" name="body" rows="12"
                     placeholder="Cuerpo" required wire:model="body"></textarea>
                 @error('body')
                     <p class="text-danger m-0 mt-2">{{ $message }}</p>

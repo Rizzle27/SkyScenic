@@ -1,4 +1,4 @@
-<div class="d-flex flex-column justify-content-center align-items-center gap-3">
+<div class="profile-container d-flex flex-column justify-content-center justify-content-lg-start align-items-center gap-3">
     <div class="position-relative">
         <img class="avatar rounded-circle object-fit-cover @if ($user->role == 'superadmin') avatar-superadmin-border
         @elseif ($user->role == 'admin')
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="d-flex flex-column text-center">
-        @if (isset($user->name) || isset($user->lastname))
+        @if ($user->name != null || $user->lastname != null)
             <p class="text-ultramarine fs-1 fw-bold m-0">
                 @isset($user->name)
                     {{ $user->name }}

@@ -1,4 +1,4 @@
-<div class="mt-4 col-8 m-navheight mx-auto content-position">
+<div class="col-10 col-sm-9 col-md-8 col-lg-9 col-xl-8 col-xxl-6 mx-auto">
     <h2 class="text-secondary text-center my-3 fs-3">Editar perfil</h2>
     <form class="col-12 col-lg-6 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="update">
         @csrf

@@ -1,4 +1,4 @@
-<div class="user-gallery m-navheight">
+<div class="-gallery">
     @if ($photosByUser->count() > 0)
         <div class="d-flex justify-content-between mx-2 mb-2">
             <h2 class="text-light fs-5 m-0">Pulbicaciones</h2>
@@ -28,7 +28,7 @@
     @if ($photosByUser->count() > 0)
         <div class="d-flex flex-wrap">
             @foreach ($photosByUser as $photo)
-                <div class="user-gallery-card col-4">
+                <div class="user-gallery-card col-4 col-lg-3">
                     <a href="{{ url('/fotos/' . $photo->id) }}">
                         <img class="object-fit-cover w-100 h-100 rounded-2"
                             src="{{ asset('uploads/photos_uploads/' . $photo->img_path) }}"

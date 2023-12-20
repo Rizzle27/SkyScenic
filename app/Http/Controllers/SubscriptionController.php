@@ -23,7 +23,7 @@ class SubscriptionController extends Controller
         ]);
     }
 
-    public function subscribe(Request $request, $id)
+    public function subscribe(int $id)
     {
         $subscriptionId = $id;
 
@@ -31,8 +31,8 @@ class SubscriptionController extends Controller
 
         if ($user) {
             $user->id_subscription = $subscriptionId;
-            $user->sub_start = Carbon::now()->toDateString();
-            $user->sub_end = Carbon::now()->addMonth()->toDateString();
+            $user->sub_start = Carbon::now();
+            $user->sub_end = Carbon::now()->addMonth();
             $user->save();
             $subscription = Subscription::findOrFail($id);
             return redirect('/usuarios/perfil/' . $user->username)->with('success', $user->username . ' gracias por convertirte en ' . $subscription->name . ' y bienvenido.');

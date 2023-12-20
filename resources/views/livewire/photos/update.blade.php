@@ -1,8 +1,8 @@
-<div class="mt-4 col-8 mx-auto content-position">
+<div class="col-10 col-sm-9 col-md-8 col-lg-9 col-xl-8 col-xxl-6 mx-auto">
     <h2 class="text-secondary text-center my-3 fs-3">Editar foto</h2>
     <form class="d-flex flex-column flex-lg-row justify-content-center mx-auto gap-4" wire:submit.prevent="update">
         @csrf
-        <div class="lg-photo-label-container d-flex flex-column mx-auto gap-4 m-navheight col-12 col-lg-6">
+        <div class="lg-photo-label-container d-flex flex-column mx-auto gap-4 col-12 col-lg-6">
             <label class="photo-label d-flex flex-column justify-content-center position-relative" for="img_path">
                 <input class="photo-input" id="img_path" type="file" accept="image/*" wire:model="img_path">
 
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="justify-content-start d-flex flex-column mx-auto m-navheight gap-4 col-12 col-lg-6">
+        <div class="justify-content-start d-flex flex-column mx-auto gap-4 col-12 col-lg-6">
             <label>
                 <p class="text-secondary mb-1 ms-3">Aeronave</p>
                 <input class="custom-fillable-input text-light w-100" id="aircraft" name="aircraft" type="text"

@@ -1,6 +1,6 @@
-<div class="mt-4 col-8 m-navheight mx-auto content-position">
+<div class="col-10 col-sm-9 col-md-8 col-lg-9 col-xl-8 col-xxl-6 mx-auto">
     <h2 class="text-secondary text-center my-3 fs-">Registrar nueva cuenta</h2>
-    <form class="col-12 col-lg-6 d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="signup">
+    <form class="d-flex flex-column justify-content-center mx-auto gap-4" wire:submit.prevent="signup">
         @csrf
         <label class="d-flex flex-column justify-content-center align-items-center">
             <input class="avatar-input" id="avatar" type="file" accept="image/*" wire:model="avatar">

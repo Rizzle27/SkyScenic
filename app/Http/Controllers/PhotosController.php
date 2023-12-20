@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\NewsArticle;
 use App\Models\Photo;
 use App\Models\Subscription;
 use App\Models\User;
@@ -49,10 +50,13 @@ class PhotosController extends Controller
             return $item->id !== $id;
         });
 
+        $news = NewsArticle::all();
+
         return view('photos.view', [
             'photo' => $photo,
             'user' => $user,
             'photos' => $photos,
+            'news' => $news
         ]);
     }
 

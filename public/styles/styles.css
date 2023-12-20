@@ -1,12 +1,26 @@
+/* MAIN CONTAINERS */
+
+aside {
+    width: auto;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    border-right: 1px solid #3e74ff;
+}
+
 header {
-    z-index: 2000 !important;
+    z-index: 2000;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
 }
 
-body {
-    overflow-x: hidden;
+main {
+    width: 100%;
+    min-height: calc(100vh - 83px - 78px);
 }
 
-/* reinicio estilos de google para los forms autocompletados */
+/* STYLES RESET */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -18,13 +32,36 @@ input:-webkit-autofill:active {
     box-shadow: inset 0 0 20px 20px #23232329;
 }
 
-/* color de los input type date */
+/* TYPE DATE INPUT COLOR */
 
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
 
-/* colores y estilos personalizados */
+/* CUSTOM STYLES */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 20px;
+    margin: 10px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #3e74ff;
+    border-radius: 50px;
+}
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2e55b8;
+  }
 
 .fs-7 {
     font-size: 0.75rem;
@@ -96,19 +133,105 @@ input:-webkit-autofill:active {
     background-color: #3e74ff;
 }
 
-.m-navheight {
-    margin-bottom: 62px;
+html {
+    scrollbar-width: 200px !important;
+    scrollbar-color: red !important;
 }
 
-/* welcome */
+/* --------------VIEWS---------------- */
 
-.scroll-fade {
-    height: 3rem;
-    width: 100%;
-    bottom: 45px;
+/* NAVS */
+
+/* MAIN NAV */
+
+.navbar {
+    background-color: #1e1e1e;
+}
+
+/* MAIN NAV ADMIN */
+
+.admin-upload-options {
     position: fixed;
-    background-image: linear-gradient(to top, #212529 20%, transparent 100%);
+    left: 0;
+    height: 200px;
+    bottom: -200px;
+    box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
 }
+
+.admin-upload-close {
+    right: 10px;
+}
+
+.admin-upload-info {
+    border-bottom: 1px solid #6c757d;
+    width: 100%;
+}
+
+/* SECONDARY NAV (REURN - OPTIONS) */
+
+#secondaryNav {
+    z-index: 1500;
+    height: 83px;
+}
+
+.nav-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    z-index: 2000;
+}
+
+.return-button {
+    position: absolute;
+    left: 1.2rem;
+}
+
+.option-button {
+    position: absolute;
+    right: 1.2rem;
+}
+
+/* SECONDARY NAV MOBILE */
+
+#secondaryNav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+/* SECONDARY NAV OPTIONS */
+
+#profileNavContainer {
+    display: none;
+    width: 45vw;
+    height: 90vh;
+    right: -45vw;
+    top: 66px;
+}
+
+/* #profileContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+} */
+
+/* FOTO VIEW */
+
+.view-gallery {
+    columns: 2;
+    gap: 0.5rem;
+}
+
+/* WELCOME */
+
+.gallery {
+    columns: 2;
+    gap: 0.5rem;
+}
+
+/* PHOTO USER */
 
 .profile-pic {
     width: 3rem;
@@ -116,65 +239,36 @@ input:-webkit-autofill:active {
     border-radius: 50%;
 }
 
-.active-slide-header {
-    color: #3e74ff !important;
+/* NEWS */
+
+.new-card-container {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #6c757d;
 }
 
-/* registro */
-
-.avatar-input {
-    display: none;
+.new-card-body {
+    flex: 5;
 }
 
-.avatar-label {
-    height: 140px;
-    width: 140px;
+.new-card-image {
+    aspect-ratio: 1;
+    flex: 2;
 }
 
-.avatar-img-container {
-    height: 140px;
-    width: 140px;
+.user-new-card-container {
+    border-bottom: 1px solid #6c757d;
 }
 
-.avatar-status-container {
-    position: absolute;
-    margin: auto;
-    width: 80px;
-    height: 80px;
+.user-new-card-body {
+    flex: 5;
 }
 
-.avatar-status {
-    height: 100%;
-    width: 100%;
-    background-color: #212529b9;
+.user-new-card-image {
+    aspect-ratio: 1;
+    flex: 2;
 }
 
-.avatar-container {
-    cursor: pointer;
-}
-
-.cam-icon-container {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    bottom: 0;
-    right: 0;
-}
-
-#avatarOutput {
-    display: none;
-}
-
-.avatar-thumbnail {
-    height: 22px;
-    width: 22px;
-}
-
-/* perfil del usuario */
+/* USER PROFILE */
 
 .avatar {
     height: 180px;
@@ -233,79 +327,63 @@ input:-webkit-autofill:active {
     width: 28px;
 }
 
-/* noticias */
+/* ACTION FORMS */
 
-.new-card-body {
-    flex: 5;
-}
+/* REGISTER */
 
-.new-card-image {
-    aspect-ratio: 1;
-    flex: 2;
-}
-
-/* navegación arriba */
-
-.navbar {
-    background-color: #1e1e1e;
-}
-
-.nav-margin-div {
-    height: 66px;
-}
-
-.footer-margin-div {
-    height: 60px;
-}
-
-.nav-button {
-    width: 34px;
-    height: 34px;
-    z-index: 1300;
-}
-
-#skyScenicTitle {
-    z-index: 1200;
-}
-
-.return-button {
-    position: absolute;
-    left: 1.2rem;
-}
-
-.option-button {
-    position: absolute;
-    right: 1.2rem;
-}
-
-#profileNavContainer {
+.avatar-input {
     display: none;
-    border-left: 2px solid #3e74ff;
-    width: 50vw;
-    height: 90vh;
-    right: -50vw;
-    top: 66px;
 }
 
-/* navegacion abajo */
-
-.admin-upload-options {
-    left: 0;
-    bottom: -200px;
-    height: 200px;
-    box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
+.avatar-label {
+    height: 140px;
+    width: 140px;
 }
 
-.admin-upload-close {
-    right: 10px;
+.avatar-img-container {
+    height: 140px;
+    width: 140px;
 }
 
-.admin-upload-info {
-    border-bottom: 1px solid #6c757d;
+.avatar-status-container {
+    position: absolute;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.avatar-status {
+    height: 100%;
     width: 100%;
+    background-color: #212529b9;
 }
 
-/* subir foto */
+.avatar-container {
+    cursor: pointer;
+}
+
+.cam-icon-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    bottom: 0;
+    right: 0;
+}
+
+#avatarOutput {
+    display: none;
+}
+
+.avatar-thumbnail {
+    height: 22px;
+    width: 22px;
+}
+
+/* PHOTO/NEW UPLOAD */
 
 .photo-input {
     display: none;
@@ -359,20 +437,13 @@ input:-webkit-autofill:active {
     border: 2px solid #3e74ff;
 }
 
-/* welcome*/
-
-.gallery {
-    columns: 2;
-    gap: 0.5rem;
-}
-
-/* suscripciones */
+/* SUBSCRIPTION */
 
 .top-plan {
     border-bottom: 1px solid #3e74ff;
 }
 
-/* admin */
+/* ADMIN */
 
 .div-avatar-container {
     height: 40px;
@@ -380,20 +451,28 @@ input:-webkit-autofill:active {
 }
 
 @media only screen and (min-width: 576px) {
-    /* welcome*/
+    /* FOTO VIEW */
+
+    .view-gallery {
+        columns: 3;
+        gap: 0.5rem;
+    }
+
+    /* WELCOME*/
 
     .gallery {
         columns: 3;
         gap: 0.5rem;
     }
 
-    /* noticias */
+    /* NEWS */
 
     .new-card-container {
         background-color: #292929;
         padding: 1rem;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         width: calc(50% - 8px);
+        border-bottom: none;
     }
 
     .new-card-body {
@@ -405,22 +484,57 @@ input:-webkit-autofill:active {
         aspect-ratio: 16/11;
     }
 
-    /* nav top */
+    .user-new-card-container {
+        background-color: #292929;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        width: calc(50% - 8px);
+        border-bottom: none;
+    }
+
+    .user-new-card-body {
+        flex: none;
+    }
+
+    .user-new-card-image {
+        flex: none;
+        aspect-ratio: 16/11;
+    }
+
+    /* SECONDARY NAV OPTIONS */
 
     #profileNavContainer {
-        width: 35vw;
-        right: -35vw;
+        width: 30vw;
+        right: -30vw;
     }
 }
 
 @media only screen and (min-width: 992px) {
-    .content-position {
-        position: absolute;
-        left: 18rem;
-        height: 100vh;
+    /* MAIN CONTAINERS */
+
+    header {
+        top: 0;
+        border-bottom: 1px solid #3e74ff;
     }
 
-    /* welcome*/
+    aside {
+        width: 20%;
+    }
+
+    .w-80 {
+        width: 80%;
+    }
+
+    /* FOTO VIEW */
+
+    .view-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 16px;
+        grid-row-gap: 16px;
+    }
+
+    /* WELCOME*/
 
     .gallery {
         display: grid;
@@ -479,7 +593,7 @@ input:-webkit-autofill:active {
         bottom: 0;
     }
 
-    /* noticias */
+    /* NEWS */
 
     .news-container {
         display: grid !important;
@@ -492,7 +606,7 @@ input:-webkit-autofill:active {
         width: 100%;
     }
 
-    /* fotos */
+    /* PHOTOS */
 
     .lg-photo-label-container {
         border: 1px solid #f8f9fa;
@@ -500,7 +614,16 @@ input:-webkit-autofill:active {
         padding: 2rem;
     }
 
-    /* nav-bottom (ahora top) */
+    /* PHOTO VIEW */
+
+    .photo-view-new-container {
+        max-height: 800px;
+        overflow-y: scroll;
+        border-bottom: 1px solid #3e74ff;
+        border-top: 1px solid #3e74ff;
+    }
+
+    /* MAIN NAV */
 
     .plans-link {
         display: flex;
@@ -522,37 +645,32 @@ input:-webkit-autofill:active {
         border: 1px solid #3e74ff;
         border-radius: 50px;
     }
-
-    /* nav top (ahora right) */
-
-    #lgProfileNavContainer {
-        z-index: 2100;
-        width: 14rem;
-        border-right: 1px solid #3e74ff;
-        height: 100vh;
-        left: 0;
-        top: 0;
-    }
-
-    /* nav bottom */
-
-    .navbar {
-        background-color: transparent;
-    }
 }
 
 @media only screen and (min-width: 1200px) {
-    .content-position {
-        left: 22rem;
+    /* FOTO VIEW */
+
+    .view-gallery {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    /* welcome*/
+    /* WELCOME*/
 
     .gallery {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    /* nav-bottom (ahora top) */
+    .lg-top-gallery-card:nth-child(1),
+    .lg-top-gallery-card:nth-child(2),
+    .lg-top-gallery-card:nth-child(3),
+    .lg-top-gallery-card:nth-child(4),
+    .lg-top-gallery-card:nth-child(5) {
+        width: calc(20% - 8px);
+    }
+
+    /* USER PROFILE */
+
+    /* MAIN NAV */
 
     .upload-link {
         display: flex;
@@ -560,7 +678,7 @@ input:-webkit-autofill:active {
         gap: 12px;
     }
 
-    /* suscripciones */
+    /* SUBSCRIPTIONS */
 
     .top-plan {
         border-bottom: none;
@@ -568,9 +686,22 @@ input:-webkit-autofill:active {
     }
 }
 
-/* estilos de librerias */
+@media only screen and (min-width: 1400px) {
+    /* FOTO VIEW */
 
-/* opciones de perfil */
+    .view-gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* NEWS */
+
+    .news-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* LIBRARY SYLES */
+/* PROFILE OPTIONS */
 @keyframes slideInLeft {
     from {
         transform: translateX(0);
@@ -597,7 +728,7 @@ input:-webkit-autofill:active {
     animation: slideOutLeft 0.5s ease backwards;
 }
 
-/* opciones upload admin */
+/* UPLOAD ADMIN OPTIONS */
 @keyframes slideInDown {
     from {
         transform: translateY(0);

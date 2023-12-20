@@ -1,8 +1,8 @@
-<div class="mt-4 col-10 col-md-8 mx-auto content-position">
+<div class="col-10 col-sm-9 col-md-8 col-lg-9 col-xl-8 col-xxl-6 mx-auto">
     <h2 class="text-secondary text-center my-3 fs-3">Editar noticia</h2>
     <form class="d-flex flex-column flex-lg-row justify-content-center gap-4" wire:submit.prevent="update">
         @csrf
-        <div class="lg-photo-label-container d-flex flex-column gap-4 col-lg-6 m-navheight">
+        <div class="lg-photo-label-container d-flex flex-column gap-4 col-lg-6">
             <label class="photo-label d-flex flex-column justify-content-center position-relative" for="img_path">
                 <input class="photo-input" id="img_path" type="file" accept="image/*" wire:model="img_path">
 
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="justify-content-start d-flex flex-column gap-4 col-lg-6 m-navheight">
+        <div class="justify-content-start d-flex flex-column gap-4 col-lg-6">
             <label>
                 <p class="text-secondary mb-1 ms-3">Título</p>
                 <input class="custom-fillable-input text-light w-100" id="title" name="title" type="text"
@@ -62,7 +62,7 @@
 
             <label>
                 <p class="text-secondary mb-1 ms-3">Cuerpo</p>
-                <textarea class="custom-fillable-textarea text-light w-100" id="body" name="body" rows="10"
+                <textarea class="custom-fillable-textarea text-light w-100" id="body" name="body" rows="12"
                     placeholder="Cuerpo" required wire:model="body"></textarea>
                 @error('body')
                     <p class="text-danger m-0 mt-2">{{ $message }}</p>

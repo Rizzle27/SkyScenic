@@ -1,11 +1,14 @@
-<div class="user-gallery m-navheight">
+@php
+    use Carbon\Carbon;
+@endphp
+<div class="user-gallery">
     @if ($newsByUser->count() > 0)
-        <div class="d-flex justify-content-between mx-2 mb-2">
+        <div class="d-flex justify-content-between mb-2">
             <h2 class="text-light fs-5 m-0">Noticias</h2>
             <p class="text-secondary fs-6 m-0">Total: {{ $newsByUser->count() }}</p>
         </div>
     @else
-        <div class="d-flex justify-content-center mx-2 mb-2">
+        <div class="d-flex justify-content-center mb-2">
             <div class="d-flex flex-column my-5">
                 <div class="null-photos-container d-flex justify-content-center mx-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" width="170" height="170" fill="currentColor"
@@ -26,20 +29,24 @@
         </div>
     @endif
     @if ($newsByUser->count() > 0)
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-column flex-sm-row flex-wrap gap-3">
             @foreach ($newsByUser as $new)
-                <a class="col-md-6 text-decoration-none" href="{{ url('noticias/' . $new->id) }}">
-                    <div
-                        class="d-flex flex-md-column col-12 py-3 px-3 border-1 border-secondary border-bottom gap-2 justify-content-center">
-                        <div class="order-md-2 col-8 col-md-12 d-flex flex-column">
-                            <p class="fs-6 text-secondary m-0">{{ $new->date }}</p>
-                            <h2 class="fs-5 text-light">{{ $new->title }}</h2>
-                            <p class="d-none d-sm-block fs-6 text-light m-0">{{ $new->subtitle }}</p>
-                        </div>
-                        <div class="order-md-1 col-4 col-md-12 d-flex flex-column">
-                            <img class="w-100 h-100 object-fit-cover rounded-4"
-                                src="{{ asset('uploads/news_uploads/' . $new->img_path) }}" alt="{{ $new->title }}">
-                        </div>
+                @php
+                    $formattedDate = Carbon::parse($new->date)->format('d/m/Y');
+                @endphp
+                <a class="user-new-card-container text-decoration-none d-flex flex-sm-column justify-content-between gap-2 pb-2 pb-sm-4"
+                    href="{{ url('noticias/' . $new->id) }}">
+                    <div class="user-new-card-body">
+                        <p class="text-secondary fs-6 m-0">{{ $formattedDate }}</p>
+                        <h3 class="fs-5 text-light m-0">
+                            {{ strlen($new->title) > 90 ? substr($new->title, 0, 90) . '...' : $new->title }}</h3>
+                        <p class="fs-6 text-secondary m-0">
+                            {{ strlen($new->subtitle) > 32 ? substr($new->subtitle, 0, 32) . '...' : $new->subtitle }}
+                        </p>
+                    </div>
+                    <div class="user-new-card-image">
+                        <img class="w-100 h-100 object-fit-cover rounded-3"
+                            src="{{ asset('uploads/news_uploads/' . $new->img_path) }}" alt="{{ $new->title }}">
                     </div>
                 </a>
             @endforeach
